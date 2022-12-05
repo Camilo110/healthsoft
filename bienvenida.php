@@ -50,7 +50,7 @@
 
         <div id="contenido">
             <table class="table table-striped table-bordered table-hover table-dark"
-                style="margin: auto; width: 1200px; ">
+                style="margin: 1rem auto; width: 1200px; ">
                 <thead>
                     <tr>
                         <th>DNI</th>
@@ -121,8 +121,8 @@
             </table>
         </div>
 
-        <div id="footer">
-
+        <div id="footer" style = "text:align-center">
+                <p> Todos los derechos reservados</p>
         </div>
 
     </div>
