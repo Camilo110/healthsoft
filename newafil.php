@@ -40,7 +40,7 @@ $row=mysqli_fetch_array($query);
                                 <input type="text" class="form-control mb-3" name="correo" placeholder="Correo" >
                                 <input type="text" class="form-control mb-3" name="nitips" placeholder="NIT IPS" >
                                 
-                            <input type="submit" class="btn btn-primary btn-block" value="Actualizar">
+                            <input type="submit" class="btn btn-primary btn-block" value="Afiliar">
                     </form>
                     
                 </div>
