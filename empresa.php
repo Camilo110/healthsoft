@@ -78,9 +78,9 @@
                     <td>
                         <?php echo $row['telefono'] ?>
                     </td>
-                    <th><a href="updateips.php?nit=<?php echo $row['nit'] ?>" class="btn btn-info">Editar</a>
+                    <th><a href="updateemp.php?nit=<?php echo $row['nit'] ?>" class="btn btn-info">Editar</a>
                     </th>
-                    <th><a href="deleteips.php?nit=<?php echo $row['nit'] ?>" class="btn btn-danger">Eliminar</a>
+                    <th><a href="deleteemp.php?nit=<?php echo $row['nit'] ?>" class="btn btn-danger">Eliminar</a>
                     </th>
                 </tr>
                 <?php
