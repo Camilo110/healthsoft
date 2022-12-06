@@ -21,7 +21,7 @@
         crossorigin="anonymous"></script>
 </head>
 
-<body class="bg-dark py-5 text-white">
+<body class="bg-dark py-5 text-white">    
     <?php
     $link = new PDO('mysql:host=localhost;dbname=healthsoft', 'root', '');
     ?>
@@ -71,7 +71,6 @@
                     </tr>
                 </thead>
 
-
                 <?php foreach ($link->query('SELECT * from healthsoft.afiliado') as $row) { ?>
                 <tr>
                     <td>
@@ -120,14 +119,10 @@
                 ?>
             </table>
         </div>
-
         <div id="footer" style = "text:align-center">
                 <p> Todos los derechos reservados</p>
         </div>
-
     </div>
-
-
 </body>
 
 </html>

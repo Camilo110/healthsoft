@@ -46,65 +46,41 @@
                 style="margin: 1rem auto; width: 1200px; ">
                 <thead>
                     <tr>
-                        <th>DNI</th>
-                        <th>Tipo documento</th>
-                        <th>Nombre</th>
-                        <th>Apellido</th>
-                        <th>Fecha nacimiento</th>
-                        <th>Genero</th>
-                        <th>Direccion</th>
-                        <th>Residencia</th>
+                        <th>NIT</th>
+                        <th>Ciudad</th>
+                        <th>Dirección</th>
+                        <th>Contacto</th>
+                        <th>Razón Social</th>
                         <th>Telefono</th>
-                        <th>Estado civil</th>
-                        <th>Correo</th>
-                        <th>NIT IPS</th>
-                        <th> <a href="newafil.php"> <button type="button" class="btn btn-info">Nuevo</button> </a>
+                        <th> <a href="newemp.php"> <button type="button" class="btn btn-info">Nuevo</button> </a>
                         </th>
 
                     </tr>
                 </thead>
 
-                <?php foreach ($link->query('SELECT * from healthsoft.afiliado') as $row) { ?>
+                <?php foreach ($link->query('SELECT * from healthsoft.empresa') as $row) { ?>
                 <tr>
                     <td>
-                        <?php echo $row['dni'] ?>
-                    </td>
-                    <td>
-                        <?php echo $row['tipodoc'] ?>
-                    </td>
-                    <td>
-                        <?php echo $row['nombre'] ?>
-                    </td>
-                    <td>
-                        <?php echo $row['apellido'] ?>
-                    </td>
-                    <td>
-                        <?php echo $row['fNacimiento'] ?>
-                    </td>
-                    <td>
-                        <?php echo $row['genero'] ?>
-                    </td>
-                    <td>
-                        <?php echo $row['direccion'] ?>
+                        <?php echo $row['nit'] ?>
                     </td>
                     <td>
                         <?php echo $row['ciudad'] ?>
                     </td>
                     <td>
+                        <?php echo $row['direccion'] ?>
+                    </td>
+                    <td>
+                        <?php echo $row['nombrecontacto'] ?>
+                    </td>
+                    <td>
+                        <?php echo $row['razonsocial'] ?>
+                    </td>
+                    <td>
                         <?php echo $row['telefono'] ?>
                     </td>
-                    <td>
-                        <?php echo $row['estadocivil'] ?>
-                    </td>
-                    <td>
-                        <?php echo $row['correo'] ?>
-                    </td>
-                    <td>
-                        <?php echo $row['nitips'] ?>
-                    </td>
-                    <th><a href="update.php?id=<?php echo $row['dni'] ?>" class="btn btn-info">Editar</a>
+                    <th><a href="updateips.php?nit=<?php echo $row['nit'] ?>" class="btn btn-info">Editar</a>
                     </th>
-                    <th><a href="delete.php?id=<?php echo $row['dni'] ?>" class="btn btn-danger">Eliminar</a>
+                    <th><a href="deleteips.php?nit=<?php echo $row['nit'] ?>" class="btn btn-danger">Eliminar</a>
                     </th>
                 </tr>
                 <?php
@@ -112,9 +88,13 @@
                 ?>
             </table>
         </div>
-        <div id="footer" style = "text:align-center">
-                <p> Todos los derechos reservados</p>
-        </div>
+        <div class="container">
+            <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+              <p class="col-md-4 mb-0 text-muted">© 2022 SinegiaSoft, Inc</p>
+          
+              
+            </footer>
+          </div>
     </div>
 </body>
 
