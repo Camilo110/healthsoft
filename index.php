@@ -41,8 +41,9 @@
                     <div class="row gx-5 align-items-center justify-content-center">
                         <div class="col-lg-8 col-xl-7 col-xxl-6">
                             <div class="my-5 text-center text-xl-start">
-                                <h1 class="display-5 fw-bolder text-white mb-2">A Bootstrap 5 template for modern businesses</h1>
-                                <p class="lead fw-normal text-white-50 mb-4">Quickly design and customize responsive mobile-first sites with Bootstrap, the world’s most popular front-end open source toolkit!</p>
+                                <h1 class="display-5 fw-bolder text-white mb-2">Bienvenido</h1>
+                                <h1 class="display-5 fw-bolder text-white mb-2">Esperar Para Salvarse</h1>
+                                <p class="lead fw-normal text-white-50 mb-4">Gestiona tus Tramites y visualiza toda tu informacion</p>
                             </div>
                         </div>
                         <!-- Carusel-->

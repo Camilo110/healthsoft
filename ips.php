@@ -2,7 +2,7 @@
 <html lang="es">
 
 <head>
-    <title>Mostrar Registros de MySQL con PHP</title>
+    <title>IPS</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Latest compiled and minified CSS -->
@@ -41,7 +41,7 @@
             </nav>
         </div>
         <h1 style= "text-align:center">
-        Gestionar Afiliados
+        Gestionar IPS
         </h1>
         <br></br>
 

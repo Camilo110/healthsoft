@@ -2,7 +2,7 @@
 <html lang="es">
 
 <head>
-    <title>Mostrar Registros de MySQL con PHP</title>
+    <title>Empresa</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Latest compiled and minified CSS -->

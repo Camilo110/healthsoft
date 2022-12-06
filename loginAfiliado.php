@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -40,7 +41,7 @@
                 </div>
             </div>
             <div>
-                <button type="submit" class="btn btn-info text-white w-100 mt-4 fw-semibold shadow-sm btn-primary">Login</button>
+                <button  type="submit" class="btn btn-info text-white w-100 mt-4 fw-semibold shadow-sm btn-primary">Login</button>
             </div>
             
         </div>
