@@ -13,6 +13,6 @@ $sql="INSERT INTO `aportes`(`idcotizante`, `codempresa`) VALUES ('$idCotizante',
 $query=mysqli_query($con,$sql);
 
     if($query){
-        Header("Location: bienvenida.php");
+        Header("Location: aportes.php");
     }
 ?>

@@ -21,6 +21,6 @@ $sql="UPDATE `afiliado` SET dni='$dni_afil',`tipodoc`='$t_doc',`nombre`='$nombre
 $query=mysqli_query($con,$sql);
 
     if($query){
-        Header("Location: bienvenida.php");
+        Header("Location: afiliado.php");
     }
 ?>

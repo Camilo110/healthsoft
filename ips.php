@@ -30,7 +30,7 @@
         <div id="cabecera">
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
                 <div class="container px-5">
-                    <a class="navbar-brand" href="index.php">HealthSoft</a>
+                    <a class="navbar-brand"style ="font-size:2.5rem" href="index.php">HealthSoft</a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                         data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation"><span
@@ -40,8 +40,12 @@
                 </div>
             </nav>
         </div>
+        <h1 style= "text-align:center">
+        Gestionar Afiliados
+        </h1>
+        <br></br>
 
-        <div id="contenido">
+        <div id="contenido" style ="font-size:1.3rem">
             <table class="table table-striped table-bordered table-hover table-dark"
                 style="margin: 1rem auto; width: 1200px; ">
                 <thead>
@@ -50,7 +54,7 @@
                         <th>Razón Social</th>
                         <th>Nivel de Atención</th>
                         <th>Servicios Prestados</th>                        
-                        <th> <a href="newIPS.php"> <button type="button" class="btn btn-info">Nuevo</button> </a>
+                        <th> <a  href="newIPS.php"> <button type="button" style ="font-size:1.2rem" class="btn btn-info">Nuevo</button> </a>
                         </th>
 
                     </tr>
@@ -71,9 +75,9 @@
                         <?php echo $row['serviciosprestados'] ?>
                     </td>
                     
-                    <th><a href="updateIPS.php?nit=<?php echo $row['nit'] ?>" class="btn btn-info">Editar</a>
+                    <th><a style ="font-size:1.2rem" href="updateIPS.php?nit=<?php echo $row['nit'] ?>" class="btn btn-info">Editar</a>
                     </th>
-                    <th><a href="deleteIPS.php?nit=<?php echo $row['nit'] ?>" class="btn btn-danger">Eliminar</a>
+                    <th><a style ="font-size:1.2rem" href="deleteIPS.php?nit=<?php echo $row['nit'] ?>" class="btn btn-danger">Eliminar</a>
                     </th>
                 </tr>
                 <?php

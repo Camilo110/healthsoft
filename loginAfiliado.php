@@ -16,7 +16,7 @@
             <div class="d-flex justify-content-center ">
                 <img src="/img/login-icon.svg" alt="login-icon" style="height: 7rem" />
             </div>
-            <div class="text-center fs-3 fw-bold">Login Afiliado</div>
+            <div class="text-center fs-3 fw-bold">Login Cotizante</div>
             <div class="input-group mt-4">
                 <div class="input-group-text bg-secondary">
                     <img src="/img/username-icon.svg" alt="username-icon" style="height: 1rem" />

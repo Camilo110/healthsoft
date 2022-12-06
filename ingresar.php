@@ -21,6 +21,6 @@ $sql="INSERT INTO `afiliado`(`dni`, `tipodoc`, `nombre`, `apellido`, `fNacimient
 $query=mysqli_query($con,$sql);
 
     if($query){
-        Header("Location: bienvenida.php");
+        Header("Location: afiliado.php");
     }
 ?>

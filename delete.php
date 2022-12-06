@@ -9,6 +9,6 @@ $sql="DELETE FROM afiliado  WHERE dni='$dni_afi'";
 $query=mysqli_query($con,$sql);
 
     if($query){
-        Header("Location: bienvenida.php");
+        Header("Location: afiliado.php");
     }
 ?>

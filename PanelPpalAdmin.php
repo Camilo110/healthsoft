@@ -50,7 +50,7 @@
 .servicio {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: center;;
 }
 .servicio h3 {
     color: var(--secundario);
@@ -65,6 +65,11 @@
     width: 15rem;
     background-color: #636363;
     border-radius: 50%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.butooon{
     display: flex;
     justify-content: space-evenly;
     align-items: center;
@@ -141,7 +146,7 @@
             <div class="contenedor sombra bg-dark ">
             <div class="servicios contenedor">
                 <section class="servicio">
-                    <h3>Empresa</h3>
+                    <h3>IPS</h3>
                     <div class="iconos">
                         <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-palette" width="40" height="40" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round">
                             <path stroke="none" d="M0 0h24v24H0z"/>
@@ -151,14 +156,14 @@
                             <circle cx="16.5" cy="10.5" r=".5" fill="currentColor" />
                         </svg>
                     </div>
-                    <div class="btn-group-vertical">
-                                <a href = "http://petardashd.com/">
-                                    <button  type="button"class="btn btn-info text-white w-100 mt-4 fw-semibold shadow-sm btn-primary buttonlist">Gestionar Contrato IPS</button>
+                    <div class="btn-group-vertical butooon">
+                                <a href = "ips.php">
+                                    <button  type="button"class="btn btn-info text-white w-100 mt-4 fw-semibold shadow-sm btn-primary buttonlist">Gestionar IPS</button>
                                 </a>
-                                <a href = "bienvenida.php">
-                                    <button  type="button"class="btn btn-info text-white w-100 mt-4 fw-semibold shadow-sm btn-primary buttonlist">Gestionar Orden de servicio</button>
+                                <a href = "registrarOrdenes.php">
+                                    <button  type="button"class="btn btn-info text-white w-100 mt-4 fw-semibold shadow-sm btn-primary buttonlist">Orden de Servicios</button>
                                 </a>
-                            </div>
+                </div>
                     </section>
             
                 <section class="servicio">
@@ -182,17 +187,14 @@
                         </svg>
                     </div>
                     <div class="btn-group-vertical">
-                                <a href = "bienvenida.php">
+                                <a href = "afiliado.php">
                                     <button  type="button"class="btn btn-info text-white w-100 mt-4 fw-semibold shadow-sm btn-primary buttonlist">Gestionar Afiliación</button>
-                                </a>
-                                <a href = "aportes.php">
-                                    <button  type="button"class="btn btn-info text-white w-100 mt-4 fw-semibold shadow-sm btn-primary buttonlist">Gestionar Reportes</button>
                                 </a>
                             </div>
                 </section>
 
                 <section class="servicio">
-                    <h3>IPS</h3>
+                    <h3>Empresa</h3>
                     <div class="iconos">
                         <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-credit-card" width="40" height="40" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round">
                             <path stroke="none" d="M0 0h24v24H0z"/>
@@ -203,8 +205,13 @@
                         </svg>
                     </div>
                     <div class="btn-group-vertical">
-                                <button type="button" class="btn btn-info text-white w-100 mt-4 fw-semibold shadow-sm btn-primary buttonlist">Gestionar Empresa</button>
-                            </div>
+                                <a href = "empresa.php">
+                                    <button  type="button"class="btn btn-info text-white w-100 mt-4 fw-semibold shadow-sm btn-primary buttonlist">Gestionar Empresa</button>
+                                </a>
+                                <a href = "#">
+                                    <button  type="button"class="btn btn-info text-white w-100 mt-4 fw-semibold shadow-sm btn-primary buttonlist">Gestionar Contrato</button>
+                                </a>
+                </div>
                 </section>
             </div>
         </div>

@@ -2,7 +2,7 @@
 <html lang="es">
 
 <head>
-    <title>Mostrar Registros de MySQL con PHP</title>
+    <title>Afiliado</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Latest compiled and minified CSS -->
@@ -25,30 +25,24 @@
     <?php
     $link = new PDO('mysql:host=localhost;dbname=healthsoft', 'root', '');
     ?>
-    <div class="todo ">
-
-        <div id="cabecera">
-            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    
+        
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark" >
                 <div class="container px-5">
-                    <a class="navbar-brand" href="index.php">HealthSoft</a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation"><span
-                            class="navbar-toggler-icon"></span></button>
+                    <a class="navbar-brand" style ="font-size:2.5rem" href="index.php">HealthSoft</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                            <li class="nav-item"><a class="nav-link" href="loginAfiliado.html">Afiliado</a></li>
-                            <li class="nav-item"><a class="nav-link" href="loginBanco.html">Banco</a></li>
-                            <li class="nav-item"><a class="nav-link" href="loginAdmin.php">Administrador</a></li>
-
-
-                        </ul>
+            
                     </div>
                 </div>
             </nav>
-        </div>
-
-        <div id="contenido">
+    <h1 style= "text-align:center">
+        Gestionar Afiliados
+    </h1>
+    <br></br>
+    
+    <div class="todo ">
+        <div id="contenido" style ="font-size:1.3rem">
             <table class="table table-striped table-bordered table-hover table-dark"
                 style="margin: 1rem auto; width: 1200px; ">
                 <thead>
@@ -65,7 +59,7 @@
                         <th>Estado civil</th>
                         <th>Correo</th>
                         <th>NIT IPS</th>
-                        <th> <a href="newafil.php"> <button type="button" class="btn btn-info">Nuevo</button> </a>
+                        <th> <a href="newafil.php"> <button style ="font-size:1.2rem" type="button" class="btn btn-info">Nuevo</button> </a>
                         </th>
 
                     </tr>
@@ -109,9 +103,9 @@
                     <td>
                         <?php echo $row['nitips'] ?>
                     </td>
-                    <th><a href="update.php?id=<?php echo $row['dni'] ?>" class="btn btn-info">Editar</a>
+                    <th><a style ="font-size:1.2rem" href="update.php?id=<?php echo $row['dni'] ?>" class="btn btn-info">Editar</a>
                     </th>
-                    <th><a href="delete.php?id=<?php echo $row['dni'] ?>" class="btn btn-danger">Eliminar</a>
+                    <th><a style ="font-size:1.2rem" href="delete.php?id=<?php echo $row['dni'] ?>" class="btn btn-danger">Eliminar</a>
                     </th>
                 </tr>
                 <?php
