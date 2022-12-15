@@ -26,7 +26,7 @@ $row = mysqli_fetch_array($query);
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    
+
 
 </head>
 
@@ -47,10 +47,10 @@ $row = mysqli_fetch_array($query);
 
     <div class="container">
 
-        <form action="ingresar.php" method="POST" class="bg-dark">
+        <form action="ingresarBen.php" method="POST" class="bg-dark">
             <div class="bg-shadow p-5 rounded-5 text-secondary shadow">
                 <div class="col bg-dark text-white text-center">
-                    <h3>Ingresar nuevo cotizante</h3>
+                    <h3>Ingresar nuevo beneficiario</h3>
                 </div>
                 <!-- 2 column grid layout with text inputs for the first and last names -->
                 <div class="row mb-4">
@@ -60,9 +60,7 @@ $row = mysqli_fetch_array($query);
                             <select class="form-control bg-dark" style="color: gray" name="t_d">
                                 <option>Cedula</option>
                                 <option>Tarjeta de identidad</option>
-
                             </select>
-
                         </div>
 
                         <label class="col-form-label fw-bold" style="font-size: 1.1rem">Nombres</label>
@@ -95,18 +93,13 @@ $row = mysqli_fetch_array($query);
                                 placeholder="Ingrese Correo electronico" id="correo" />
                         </div>
 
-                        <label class="col-form-label fw-bold" style="font-size: 1.1rem">Primera fecha de
-                            Afiliación</label>
+                        <label class="col-form-label fw-bold" style="font-size: 1.1rem">DNI Cotizante</label>
                         <div class="col-sm-15">
-                            <input class="form-control bg-light bg-dark" style="color: gray" name="pfa" type="date"
-                                placeholder="dd/mm/aaaa" id="fecha" />
+                            <input class="form-control bg-light bg-dark" name="dniCot" type="text"
+                                placeholder="Ingrese DNI Cotizante" id="codigo" />
                         </div>
 
-                        <label class="col-form-label fw-bold" style="font-size: 1.1rem">Salario</label>
-                        <div class="col-sm-15">
-                            <input class="form-control bg-light bg-dark" name="salario" type="text"
-                                placeholder="Ingrese Salario" id="codigo" />
-                        </div>
+
 
                     </div>
                     <div class="col">
@@ -156,22 +149,21 @@ $row = mysqli_fetch_array($query);
                                 placeholder="Ingrese NIT IPS" id="codigo" />
                         </div>
 
-                        <label class="col-form-label fw-bold" style="font-size: 1.1rem">Estado de afiliado</label>
+                        <label class="col-form-label fw-bold" style="font-size: 1.1rem">Parentesco </label>
                         <div class="col-sm-15">
-                            <input class="form-control bg-light bg-dark" name="estadoAfi" type="text"
-                                placeholder="Ingrese Estado de afiliado" id="codigo" />
+                            <input class="form-control bg-light bg-dark" name="Parentesco" type="text"
+                                placeholder="Ingrese Parentesco" id="codigo" />
                         </div>
 
-                        <label class="col-form-label fw-bold" style="font-size: 1.1rem">Rango salarial</label>
-                        <div class="col-sm-15">
-                            <input class="form-control bg-light bg-dark" name="ranSal" type="text"
-                                placeholder="Ingrese Rango salarial" id="codigo" />
-                        </div>
 
 
                     </div>
 
                 </div>
+
+
+
+
 
                 <!-- Checkbox -->
 
@@ -183,7 +175,7 @@ $row = mysqli_fetch_array($query);
         </form>
     </div>
 
-    
+
 </body>
 
 </html>
