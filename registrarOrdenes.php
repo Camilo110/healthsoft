@@ -1,6 +1,6 @@
-<?php 
-    include("conex.php");
-    $con=conectar();
+<?php
+include("conex.php");
+$con = conectar();
 ?>
 
 <!DOCTYPE html>
@@ -16,29 +16,32 @@
 </head>
 
 <body class="bg-dark d-flex justify-content-center align-items-center vh-100">
-    <form action = "registrarOrdenesBack.php" method = "POST" id="formAportes">
+    <form action="registrarOrdenesBack.php" method="POST" id="formAportes">
         <div class="bg-shadow p-5 rounded-5 text-secondary shadow" style="width: 30rem">
             <div class="d-flex justify-content-center">
-                <img src="" alt="" style="height: 7rem"/>
+                <img src="" alt="" style="height: 7rem" />
             </div>
             <div class="text-center fs-3 fw-bold">Registro de Ordenes</div>
             <div class="form-group row">
                 <label class="col-form-label fw-bold" style="font-size: 1.1rem">Codigo Orden</label>
                 <div class="col-sm-15">
-                    <input class="form-control bg-light" name="codigo" type="text" placeholder="ingrese codigo de orden" id="codigo" />
+                    <input class="form-control bg-light" name="codigo" type="text" placeholder="ingrese codigo de orden"
+                        id="codigo" />
                 </div>
-              
+
             </div>
             <div class="form-group row">
                 <label class=" col-form-label fw-bold" style="font-size: 1.1rem">Descripcion deñ Servicio</label>
                 <div class="col-sm-15">
-                    <input class="form-control bg-light" name="servicio" type="text" placeholder="describa el servicio" id="servicio" />
+                    <input class="form-control bg-light" name="servicio" type="text" placeholder="describa el servicio"
+                        id="servicio" />
                 </div>
             </div>
             <div class="form-group row">
                 <label class=" col-form-label fw-bold" style="font-size: 1.1rem">Diagnostico</label>
                 <div class="col-sm-15">
-                    <input class="form-control bg-light" name="diagnostico" type="text" placeholder="ingrese el diagnostico" id="diagnostico" />
+                    <input class="form-control bg-light" name="diagnostico" type="text"
+                        placeholder="ingrese el diagnostico" id="diagnostico" />
                 </div>
             </div>
             <div class="form-group row">
@@ -50,27 +53,37 @@
             <div class="form-group row">
                 <label class=" col-form-label fw-bold" style="font-size: 1.1rem">DNI del Afiliado</label>
                 <div class="col-sm-15">
-                    <input class="form-control bg-light" name="dni" type="text" placeholder="ingrese numero de documento" id="dni" />
+                    <input class="form-control bg-light" name="dni" type="text"
+                        placeholder="ingrese numero de documento" id="dni" />
                 </div>
             </div>
             <div class="form-group row">
                 <label class=" col-form-label fw-bold" style="font-size: 1.1rem">NIT IPS</label>
                 <div class="col-sm-15">
-                    <input class="form-control bg-light" name="nit" type="text" placeholder="ingrese el nit de la IPS" id="nit" />
+                    <input class="form-control bg-light" name="nit" type="text" placeholder="ingrese el nit de la IPS"
+                        id="nit" />
                 </div>
             </div>
             <div class="form-group row">
                 <label class=" col-form-label fw-bold" style="font-size: 1.1rem">Nombre del Medico</label>
                 <div class="col-sm-15">
-                    <input class="form-control bg-light" name="medico" type="text" placeholder="ingrese el nombre del medico" id="medico" />
+                    <input class="form-control bg-light" name="medico" type="text"
+                        placeholder="ingrese el nombre del medico" id="medico" />
                 </div>
             </div>
-           
+
             <div>
-                <button type="submit" class="btn btn-info text-white w-100 mt-4 fw-semibold shadow-sm btn-primary">Registrar Orden</button>
+                <button type="submit"
+                    class="btn btn-info text-white w-100 mt-4 fw-semibold shadow-sm btn-primary">Registrar
+                    Orden</button>
             </div>
-            
+
         </div>
-    </form>    
+    </form>
 </body>
+
 </html>
+
+
+
+

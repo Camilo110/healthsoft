@@ -140,7 +140,7 @@
                                 <th>Telefono</th>
                                 <th>Estado civil</th>
                                 <th>Correo</th>
-                                <th>Parentezco</th>
+                                <th>Parentesco</th>
 
 
                             </tr>

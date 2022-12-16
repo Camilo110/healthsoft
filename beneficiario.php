@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -37,7 +38,7 @@
                 </div>
             </nav>
     <h1 style= "text-align:center">
-        Gestionar Cotizantes
+        Gestionar Beneficiarios
     </h1>
     <br></br>
     
@@ -59,14 +60,15 @@
                         <th>Estado civil</th>
                         <th>Correo</th>
                         <th>NIT IPS</th>
-                        <th>Estado</th>
-                        <th> <a href="newafil.php"> <button style ="font-size:1.2rem" type="button" class="btn btn-info">Nuevo</button> </a>
+                        <th>DNI Cotizante</th>
+                        <th>Parentesco</th>
+                        <th> <a href="gestionarBen.php"> <button style ="font-size:1.2rem" type="button" class="btn btn-info">Nuevo</button> </a>
                         </th>
 
                     </tr>
                 </thead>
 
-                <?php foreach ($link->query('SELECT * FROM `afiliado` INNER JOIN `cotizante` ON `afiliado`.`dni`=`cotizante`.`dniafiliado` ;') as $row) { ?>
+                <?php foreach ($link->query('SELECT * FROM `afiliado` INNER JOIN `beneficiario` ON `afiliado`.`dni`=`beneficiario`.`dniafiliado` ;') as $row) { ?>
                 <tr>
                     <td>
                         <?php echo $row['dni'] ?>
@@ -105,13 +107,16 @@
                         <?php echo $row['nitips'] ?>
                     </td>
                     <td>
-                        <?php echo $row['estadoafiliado'] ?>
+                        <?php echo $row['dnicotizante'] ?>
+                    </td>
+                    <td>
+                        <?php echo $row['parentezco'] ?>
                     </td>
 
 
-                    <th><a style ="font-size:1.2rem" href="update.php?id=<?php echo $row['dni'] ?>" class="btn btn-info">Editar</a>
+                    <th><a style ="font-size:1.2rem" href="updateBen.php?id=<?php echo $row['dni'] ?>" class="btn btn-info">Editar</a>
                     </th>
-                    <th><a style ="font-size:1.2rem" href="delete.php?id=<?php echo $row['dni'] ?>" class="btn btn-danger">Eliminar</a>
+                    <th><a style ="font-size:1.2rem" href="deleteBen.php?id=<?php echo $row['dni'] ?>" class="btn btn-danger">Eliminar</a>
                     </th>
                 </tr>
                 <?php

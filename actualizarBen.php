@@ -19,19 +19,18 @@ $estadocivil=$_POST['ecivil'];
 $correo=$_POST['correo'];
 $nitips=$_POST['nitips'];
 //Cotizante
-$primeraAfi=$_POST['pfa'];
-$salario=$_POST['salario'];
-$estadoAfil=$_POST['estadoAfi'];
-$ranSala=$_POST['ranSal'];
+$dniCot=$_POST['dniCo'];
+$paren=$_POST['parentesco'];
+
 
 
 $sql="UPDATE `afiliado` SET `dni`='$dni_afil',`tipodoc`='$t_doc',`nombre`='$nombres',`apellido`='$apellidos',`fNacimiento`='$f_nac',`genero`='$genero',`direccion`='$direccion',`ciudad`='$ciudad',`telefono`='$telefono',`estadocivil`='$estadocivil',`correo`='$correo',`nitips`='$nitips' WHERE `afiliado`.`dni` = '$dni_afil'";
 $query=mysqli_query($con,$sql);
 
-$sql2="UPDATE `cotizante` SET `dniafiliado`='$dni_afil',`fecha1afiliacion`='$primeraAfi',`estadoafiliado`='$estadoAfil',`salario`='$salario',`rangosalarial`='$ranSala' WHERE `cotizante`.`dniafiliado` = '$dni_afil'";
+$sql2="UPDATE `beneficiario` SET `dnicotizante`='$dniCot',`dniafiliado`='$dni_afil',`parentezco`='$paren'  WHERE `beneficiario`.`dniafiliado` = '$dni_afil'";
 $query2=mysqli_query($con,$sql2);
 
     if($query and $query2){
-        Header("Location: afiliado.php");
+        Header("Location: beneficiario.php");
     }
 ?>

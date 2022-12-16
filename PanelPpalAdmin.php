@@ -240,7 +240,7 @@
                                 class="btn btn-info text-white w-100 mt-4 fw-semibold shadow-sm btn-primary buttonlist">Gestionar
                                 Cotizante</button>
                         </a>
-                        <a href="gestionarBen.php">
+                        <a href="beneficiario.php">
                             <button type="button"
                                 class="btn btn-info text-white w-100 mt-4 fw-semibold shadow-sm btn-primary buttonlist">Gestionar
                                 Beneficiario</button>
