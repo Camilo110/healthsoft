@@ -74,10 +74,6 @@
                         <?php echo $row['serviciosprestados'] ?>
                     </td>
                     
-                    <th><a style ="font-size:1.2rem" href="updateIPS.php?nit=<?php echo $row['nit'] ?>" class="btn btn-info">Editar</a>
-                    </th>
-                    <th><a style ="font-size:1.2rem" href="deleteIPS.php?nit=<?php echo $row['nit'] ?>" class="btn btn-danger">Eliminar</a>
-                    </th>
                 </tr>
                 <?php
                 }

@@ -3,16 +3,21 @@
 include("conex.php");
 $con=conectar();
 
-$fechPago=$_POST['fechaPago'];
+$fechaPago=$_POST['fechaPago'];
 $valorPago=$_POST['valorPago'];
 $idCotizante=$_POST['idCotizante'];
 $codEmpresa=$_POST['codEmpresa'];
 
 
-$sql="INSERT INTO `aportes`(`idcotizante`, `codempresa`) VALUES ('$idCotizante','$codEmpresa')";
-$query=mysqli_query($con,$sql);
+$sqlinsert="INSERT INTO `aportes`(`fechapago`, `valorpago`, `cotizante_contrato`, `empresa_contrato`) 
+      VALUES ('$fechaPago','$valorPago','$idCotizante','$codEmpresa') ";
+$sqlupdate = "UPDATE `contrato` 
+    SET `estado`='activo',`fechaVencimiento`=date_add('$fechaPago',interval 30 day) 
+    WHERE `cotizante` ='$idCotizante' and `empresa`='$codEmpresa'";
+$queryinsert=mysqli_query($con,$sqlinsert);
+$queryupdate=mysqli_query($con,$sqlupdate);
 
-    if($query){
+    if($queryinsert and $queryupdate){
         Header("Location: aportes.php");
     }
 ?>

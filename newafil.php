@@ -26,7 +26,26 @@ $row = mysqli_fetch_array($query);
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript">
+        function mostrar(id) {
+            if (id == "estudiante") {
+                $("#estudiante").show();
+                $("#trabajador").hide();
+                $("#autonomo").hide();
+                $("#paro").hide();
+            }
+
+            if (id == "trabajador") {
+                $("#estudiante").hide();
+                $("#trabajador").show();
+                $("#autonomo").hide();
+                $("#paro").hide();
+            }
+
+        }
+    </script>
+
 
 
 </head>
@@ -75,7 +94,7 @@ $row = mysqli_fetch_array($query);
                         <label class="col-form-label fw-bold" style="font-size: 1.1rem">Fecha de nacimiento</label>
                         <div class="col-sm-15">
                             <input class="form-control bg-dark " style="color: gray" name="fnac" type="date"
-                                placeholder="dd/mm/aaaa" id="fecha" required/>
+                                placeholder="dd/mm/aaaa" id="fecha" required />
                         </div>
 
                         <label class="col-form-label fw-bold" style="font-size: 1.1rem">Direccion</label>
@@ -109,6 +128,15 @@ $row = mysqli_fetch_array($query);
                                 placeholder="Ingrese Salario" id="codigo" />
                         </div>
 
+                        <label class="col-form-label fw-bold " style="font-size: 1.1rem">¿dependiente o
+                            independiente?</label>
+
+                        <select action="index.php" method="post" id="status" name="status"
+                            onChange="mostrar(this.value);" class="form-control bg-dark" style="color: gray">
+                            <option value="estudiante">Independiente</option>
+                            <option value="trabajador">Dependiente</option>
+                        </select>
+
                     </div>
                     <div class="col">
                         <label class="col-form-label fw-bold " style="font-size: 1.1rem">Numero de documento</label>
@@ -119,7 +147,7 @@ $row = mysqli_fetch_array($query);
                         <label class="col-form-label fw-bold" style="font-size: 1.1rem">Apellidos</label>
                         <div class="col-sm-15">
                             <input class="form-control bg-light bg-dark" name="apellidos" type="text"
-                                placeholder="Ingrese Apellidos" id="codigo" required/>
+                                placeholder="Ingrese Apellidos" id="codigo" required />
                         </div>
 
                         <label class="col-form-label fw-bold" style="font-size: 1.1rem">Genero</label>
@@ -153,35 +181,80 @@ $row = mysqli_fetch_array($query);
 
                         <label class="col-form-label fw-bold" style="font-size: 1.1rem">NIT IPS</label>
                         <div class="col-sm-15">
-                            <input class="form-control bg-light bg-dark" name="nitips" type="text"
-                                placeholder="Ingrese NIT IPS" id="codigo" />
+
+
+                            <select action="index.php" method="post" class="form-control bg-dark" style="color: gray"
+                                name="empresa">
+
+                                <?php
+
+                                $consulta = "SELECT * FROM `ips`";
+                                $resultado = mysqli_query($con, $consulta);
+                                $contador = 0;
+
+                                while ($misdatos = mysqli_fetch_assoc($resultado)) {
+                                    $contador++; ?>
+                                <option>
+                                    <?php echo $misdatos['nit']; ?>
+                                </option>
+                                <?php } ?>
+
+                            </select>
                         </div>
-
-                        <label class="col-form-label fw-bold" style="font-size: 1.1rem">Estado de afiliado</label>
-                        <div class="col-sm-15">
-                            <input class="form-control bg-light bg-dark" name="estadoAfi" type="text"
-                                placeholder="Ingrese Estado de afiliado" id="codigo" />
-                        </div>
-
-                        <label class="col-form-label fw-bold" style="font-size: 1.1rem">Rango salarial</label>
-                        <div class="col-sm-15">
-                            <input class="form-control bg-light bg-dark" name="ranSal" type="text"
-                                placeholder="Ingrese Rango salarial" id="codigo" />
-                        </div>
+                    
 
 
+                    <label class="col-form-label fw-bold" style="font-size: 1.1rem">Estado de afiliado</label>
+                    <div class="col-sm-15">
+                        <input class="form-control bg-light bg-dark" name="estadoAfi" type="text"
+                            placeholder="Ingrese Estado de afiliado" id="codigo" />
                     </div>
+
+                    <label class="col-form-label fw-bold" style="font-size: 1.1rem">Rango salarial</label>
+                    <div class="col-sm-15">
+                        <input class="form-control bg-light bg-dark" name="ranSal" type="text"
+                            placeholder="Ingrese Rango salarial" id="codigo" />
+                    </div>
+
+                    <div id="trabajador" class="element" style="display: none;">
+                        <label class="col-form-label fw-bold" style="font-size: 1.1rem">
+                            Selecciona a cual empresa trabajas</label>
+                        <div class="col-sm-15">
+
+
+                            <select action="index.php" method="post" class="form-control bg-dark" style="color: gray"
+                                name="empresa">
+
+                                <?php
+
+                                $consulta = "SELECT * FROM `empresa`";
+                                $resultado = mysqli_query($con, $consulta);
+                                $contador = 0;
+
+                                while ($misdatos = mysqli_fetch_assoc($resultado)) {
+                                    $contador++; ?>
+                                <option>
+                                    <?php echo $misdatos['nit']; ?>
+                                </option>
+                                <?php } ?>
+
+                            </select>
+                        </div>
+                    </div>
+
 
                 </div>
 
-                <!-- Checkbox -->
-
-
-                <!-- Submit button -->
-                <button type="submit" class="btn btn-primary btn-block mb-4">Ingresar</button>
-
             </div>
-        </form>
+
+            <!-- Checkbox -->
+
+
+            <!-- Submit button -->
+            <button type="submit" class="btn btn-primary btn-block mb-4">Ingresar</button>
+
+    </div>
+    </form>
     </div>
 
 

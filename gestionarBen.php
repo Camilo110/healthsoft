@@ -163,9 +163,6 @@ $row = mysqli_fetch_array($query);
                 </div>
 
 
-
-
-
                 <!-- Checkbox -->
 
 

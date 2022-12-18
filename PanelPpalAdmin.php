@@ -125,22 +125,44 @@
                         <div class="btn-group-vertical">
                             <a href="listarIPS.php" class="w-100">
                                 <button type="button"
-                                class="btn btn-info text-white w-100 mt-4 fw-semibold shadow-sm btn-primary buttonlist" >Listar
+                                    class="btn btn-info text-white w-100 mt-4 fw-semibold shadow-sm btn-primary buttonlist">Listar
                                     IPS</button>
                             </a>
-                            <a href="listarActivos.php"  class="w-100">
-                                <button type="button"
-                                class="btn btn-info text-white w-100 mt-4 fw-semibold shadow-sm btn-primary buttonlist">Afiliados
-                                    Activos</button>
-                            </a>
+
+                            <form action="listarActivos.php" method="POST" class="bg-dark mt-4 w-100 mt-4" >
+                                <select hidden= "true"
+                                    class="form-control bg-dark align-items-center w-100" style="color: gray" name="niti">
+
+                                    <?php
+                                    include "conex.php";
+                                    $con = conectar();
+                                    $consulta = "SELECT * FROM `ips`";
+                                    $resultado = mysqli_query($con, $consulta);
+                                    $contador = 0;
+
+                                    while ($misdatos = mysqli_fetch_assoc($resultado)) {
+                                        $contador++; ?>
+                                    <option>
+                                        <?php echo $misdatos['nit']; ?>
+                                    </option>
+                                    <?php } ?>
+                                </select>
+
+                                <a href="listarActivos.php" class="w-100">
+                                    <button type="submit"
+                                        class="btn btn-info text-white w-100  fw-semibold shadow-sm btn-primary buttonlist">Afiliados
+                                        Activos</button>
+                                </a>
+
+                            </form>
                             <a href="#" class="w-100">
                                 <button type="button"
-                                class="btn btn-info text-white w-100 mt-4 fw-semibold shadow-sm btn-primary buttonlist">Aportes
+                                    class="btn btn-info text-white w-100 mt-4 fw-semibold shadow-sm btn-primary buttonlist">Aportes
                                     Recibidos</button>
                             </a>
                             <a href="listarInactivos.php" class="w-100">
                                 <button type="button"
-                                class="btn btn-info text-white w-100 mt-4 fw-semibold shadow-sm btn-primary buttonlist">Afiliado
+                                    class="btn btn-info text-white w-100 mt-4 fw-semibold shadow-sm btn-primary buttonlist">Afiliado
                                     Inactivos</button>
                             </a>
 
@@ -161,7 +183,7 @@
                                 <img src="/../img/imagen2.jpg" class="d-block w-100" alt="...">
                             </div>
                             <div class="carousel-item">
-                                <img src="/../img/imagen3.jpg" class="d-block w-100" alt="...">
+                                <img src="/../img/img4.jpg" class="d-block w-100" alt="...">
                             </div>
                         </div>
                         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade"
