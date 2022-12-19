@@ -23,7 +23,7 @@ $con = conectar();
             </div>
             <div class="text-center fs-3 fw-bold">Registro de Ordenes</div>
             <div class="form-group row">
-                <label class=" col-form-label fw-bold" style="font-size: 1.1rem">Descripcion deñ Servicio</label>
+                <label class=" col-form-label fw-bold" style="font-size: 1.1rem">Descripcion del Servicio</label>
                 <div class="col-sm-15">
                     <input class="form-control bg-light" name="servicio" type="text" placeholder="describa el servicio"
                         id="servicio" />
