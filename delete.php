@@ -5,13 +5,18 @@ $con = conectar();
 
 $dni_afi=$_GET['id'];
 
-$sql="DELETE FROM afiliado  WHERE dni='$dni_afi'";
-$query=mysqli_query($con,$sql);
+$deleteAfiliado="DELETE FROM afiliado  WHERE dni='$dni_afi'";
+$query=mysqli_query($con,$deleteAfiliado);
 
-$sql2="DELETE FROM cotizante  WHERE dniafiliado='$dni_afi'";
-$query2=mysqli_query($con,$sql2);
+$deleteCotizante="DELETE FROM cotizante  WHERE dniafiliado='$dni_afi'";
+$query2=mysqli_query($con,$deleteCotizante);
+
 
     if($query and $query2){
-        Header("Location: afiliado.php");
+        echo '<script> 
+        alert("Cotizante eliminado");
+        window.location = "../healthsoft/afiliado.php"
+        </script>';
+    exit;
     }
 ?>

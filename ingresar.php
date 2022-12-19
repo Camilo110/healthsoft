@@ -113,7 +113,7 @@ if (mysqli_num_rows($validar) == 0) {
 
 } else {
     echo '<script> 
-        alert("Este usuario ya existe");
+        alert("Este cotizante ya existe");
         window.location = "../healthsoft/afiliado.php"
     </script>';
     exit;

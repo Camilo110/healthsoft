@@ -43,7 +43,7 @@
                             <div class="my-5 text-center text-xl-start">
                                 <h1 class="display-5 fw-bolder text-white mb-2">Bienvenido</h1>
                                 <h1 class="display-5 fw-bolder text-white mb-2">Esperar Para Salvarse</h1>
-                                <p class="lead fw-normal text-white-50 mb-4">Gestiona tus Tramites y visualiza toda tu informacion</p>
+                                <p class="lead fw-normal text-white-50 mb-4">Gestiona tus Trámites y visualiza toda tu información</p>
                             </div>
                         </div>
                         <!-- Carusel-->

@@ -167,7 +167,7 @@ $row = mysqli_fetch_array($query);
 
 
                 <!-- Submit button -->
-                <button type="submit" class="btn btn-primary btn-block mb-4">Ingresar</button>
+                <button type="submit" class="btn btn-primary btn-block mb-4">Registrar beneficiario</button>
 
             </div>
         </form>

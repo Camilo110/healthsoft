@@ -3,12 +3,32 @@
 include("conex.php");
 $con = conectar();
 
-$nit_ips=$_GET['nit'];
+$nit_ips = $_GET['nit'];
 
-$sql="DELETE FROM ips WHERE nit='$nit_ips'";
-$query=mysqli_query($con,$sql);
+$deleteIPS = "DELETE FROM ips WHERE nit='$nit_ips'";
 
-    if($query){
-        Header("Location: ips.php");
-    }
+
+
+
+
+mysqli_autocommit($con, FALSE);
+//query
+mysqli_query($con, $deleteIPS);
+//commit
+mysqli_commit($con);
+
+
+
+if ($deleteIPS) {
+
+
+    echo '<script> 
+        alert("IPS eliminada");
+        window.location = "../healthsoft/ips.php"
+        </script>';
+    //Header("Location: ips.php");
+    exit;
+}
+
+mysqli_close($con);
 ?>

@@ -8,13 +8,13 @@ $numContrato = $_POST['numContrato'];
 
 
 //Validar si esta
-$validar = mysqli_query($con, "SELECT * FROM `contrato` WHERE `numerocontrato` = '$numContrato'");
+$validar = mysqli_query($con, "SELECT * FROM `contrato` WHERE `numcontrato` = '$numContrato'");
 
 
 //datos
 $insertRetiro = "INSERT INTO `retiro`(`numcontrato`) VALUES ('$numContrato')";
 $updateContrato = "UPDATE `contrato` SET`estado`='Retirado' WHERE `numcontrato` = '$numContrato'";
-$updateCotizante = "UPDATE `cotizante` SET `estadoafiliado`='Retirado' WHERE `dni` = ";
+$updateCotizante = "UPDATE `cotizante` SET `estadoafiliado`='Retirado' WHERE `dniafiliado` = (SELECT `cotizante` FROM `contrato` WHERE `numcontrato` = '$numContrato');";
 
 
 if (mysqli_num_rows($validar) > 0) {
