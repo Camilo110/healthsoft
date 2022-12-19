@@ -129,9 +129,9 @@
                                     IPS</button>
                             </a>
 
-                            <form action="listarActivos.php" method="POST" class="bg-dark mt-4 w-100 mt-4" >
-                                <select hidden= "true"
-                                    class="form-control bg-dark align-items-center w-100" style="color: gray" name="niti">
+                            <form action="listarActivos.php" method="POST" class="bg-dark mt-4 w-100 ">
+                                <select hidden="true" class="form-control bg-dark align-items-center w-100"
+                                    style="color: gray" name="niti">
 
                                     <?php
                                     include "conex.php";
@@ -155,18 +155,56 @@
                                 </a>
 
                             </form>
-                            <a href="#" class="w-100">
-                                <button type="button"
-                                    class="btn btn-info text-white w-100 mt-4 fw-semibold shadow-sm btn-primary buttonlist">Aportes
-                                    Recibidos</button>
-                            </a>
+
+                            <form action="listarAportes.php" method="POST" class="bg-dark w-100">
+
+                            <select hidden="true" class="form-control bg-dark align-items-center w-100"
+                                    style="color: gray" name="fecha1">
+
+                                    <?php
+
+                                    $consulta = "SELECT min(fechapago) FROM `aportes`;";
+                                    $resultado = mysqli_query($con, $consulta);
+                                    $contador = 0;
+
+                                    while ($misdatos = mysqli_fetch_assoc($resultado)) {
+                                        $contador++; ?>
+                                    <option>
+                                        <?php echo $misdatos['fechapago']; ?>
+                                    </option>
+                                    <?php } ?>
+                                </select>
+
+                                <select hidden="true" class="form-control bg-dark align-items-center w-100"
+                                    style="color: gray" name="fecha2">
+
+                                    <?php
+
+                                    $consulta = "SELECT max(fechapago) FROM `aportes`;";
+                                    $resultado = mysqli_query($con, $consulta);
+                                    $contador = 0;
+
+                                    while ($misdatos = mysqli_fetch_assoc($resultado)) {
+                                        $contador++; ?>
+                                    <option>
+                                        <?php echo $misdatos['fechapago']; ?>
+                                    </option>
+                                    <?php } ?>
+                                </select>
+                                
+                                <a href="listarAportes.php" class="w-100">
+                                    <button type="submit"
+                                        class="btn btn-info text-white w-100 mt-4 fw-semibold shadow-sm btn-primary buttonlist">Aportes
+                                        Recibidos</button>
+                                </a>
+
+                            </form>
+
                             <a href="listarInactivos.php" class="w-100">
-                                <button type="button"
+                                <button type="submit"
                                     class="btn btn-info text-white w-100 mt-4 fw-semibold shadow-sm btn-primary buttonlist">Afiliado
                                     Inactivos</button>
                             </a>
-
-
 
 
                         </div>
@@ -177,13 +215,13 @@
                         data-bs-ride="carousel">
                         <div class="carousel-inner">
                             <div class="carousel-item active">
-                                <img src="../img/imagen1.jpg" class="d-block w-100" alt="...">
+                                <img src="../img/imagen5.jpg" class="d-block "  width="400" height="300"alt="...">
                             </div>
                             <div class="carousel-item">
-                                <img src="/../img/imagen2.jpg" class="d-block w-100" alt="...">
+                                <img src="/../img/imagen6.jpg" class="d-block " width="410" height="300"alt="...">
                             </div>
                             <div class="carousel-item">
-                                <img src="/../img/img4.jpg" class="d-block w-100" alt="...">
+                                <img src="/../img/imagen7.jpg" class="d-block " width="410" height="300" alt="...">
                             </div>
                         </div>
                         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade"
@@ -289,7 +327,7 @@
                                 class="btn btn-info text-white w-100 mt-4 fw-semibold shadow-sm btn-primary buttonlist">Gestionar
                                 Empresa</button>
                         </a>
-                        <a href="#">
+                        <a href="gestionarContrato.php">
                             <button type="button"
                                 class="btn btn-info text-white w-100 mt-4 fw-semibold shadow-sm btn-primary buttonlist">Gestionar
                                 Contrato</button>

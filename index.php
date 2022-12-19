@@ -50,13 +50,13 @@
                         <div id="carouselExampleFade" class="carousel slide carousel-fade col-xl-5 col-xxl-6 d-none d-xl-block" data-bs-ride="carousel">
                             <div class="carousel-inner">
                               <div class="carousel-item active">
-                                <img src="../img/imagen1.jpg" class="d-block w-100" alt="...">
+                                <img src="../img/imagen5.jpg" class="d-block "width="410" height="300" alt="...">
                               </div>
                               <div class="carousel-item">
-                                <img src="/../img/imagen2.jpg" class="d-block w-100" alt="...">
+                                <img src="/../img/imagen6.jpg" class="d-block "width="410" height="300" alt="...">
                               </div>
                               <div class="carousel-item">
-                                <img src="/../img/imagen3.jpg" class="d-block w-100" alt="...">
+                                <img src="/../img/imagen7.jpg" class="d-block "width="410" height="300" alt="...">
                               </div>
                             </div>
                             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">

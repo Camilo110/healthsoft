@@ -76,7 +76,7 @@
             </div>
            
             <div>
-                <button type="submit" class="btn btn-info text-white w-100 mt-4 fw-semibold shadow-sm btn-primary">Registrar Orden</button>
+                <button type="submit" class="btn btn-info text-white w-100 mt-4 fw-semibold shadow-sm btn-primary">Registrar Empresa</button>
             </div>
             
         </div>

@@ -103,6 +103,10 @@
                             <?php echo $row['estado'] ?><br>
                             <br> IPS: 
                             <?php echo $row['nitips'] ?><br>
+
+                            <br> nombre 
+                            <?php echo $row['nombre'] ?><br>
+                        
                         </div>
 
 

@@ -184,7 +184,7 @@ $row = mysqli_fetch_array($query);
 
 
                             <select action="index.php" method="post" class="form-control bg-dark" style="color: gray"
-                                name="empresa">
+                                name="nitips">
 
                                 <?php
 

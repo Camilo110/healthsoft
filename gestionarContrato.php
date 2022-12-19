@@ -17,25 +17,11 @@ $con = conectar();
 
 
 <body class="bg-dark d-flex justify-content-center align-items-center vh-100">
-    <form action="aportesBack.php" method="POST" id="formAportes" enctype="multipart/form-data">
+    <form action="vinculacion.php" method="POST" id="formAportes" enctype="multipart/form-data">
         <div class="bg-shadow p-5 rounded-5 text-secondary shadow" style="width: 30rem">
 
-            <div class="text-center fs-3 fw-bold">Sistemas de Registro de Aportes</div>
-            <div class="form-group row">
-                <label class="col-form-label fw-bold" style="font-size: 1.1rem">Fecha de Pago</label>
-                <div class="col-sm-15">
-                    <input class="form-control bg-light" name="fechaPago" type="date" placeholder="dd/mm/aaaa"
-                        id="FechaPago" />
-                </div>
+            <div class="text-center fs-3 fw-bold">Registro de vinculación</div>
 
-            </div>
-            <div class="form-group row">
-                <label class=" col-form-label fw-bold" style="font-size: 1.1rem">Valor Pagado</label>
-                <div class="col-sm-15">
-                    <input class="form-control bg-light" name="valorPago" type="text" placeholder="Monto del Pago"
-                        id="ValorPago" />
-                </div>
-            </div>
             <div class="form-group row">
                 <label class=" col-form-label fw-bold" style="font-size: 1.1rem">DNI del Cotizante</label>
                 <div class="col-sm-15">
@@ -43,20 +29,21 @@ $con = conectar();
                         placeholder="Cedula del cotizante" id="idCotizante" />
                 </div>
             </div>
+
             <div class="form-group row">
-                <label class=" col-form-label fw-bold" style="font-size: 1.1rem">NIT de Empresa</label>
+                <label class=" col-form-label fw-bold" style="font-size: 1.1rem">Empresa</label>
                 <div class="col-sm-15">
                     <select action="index.php" method="post" class="form-control bg-dark" style="color: gray"
                         name="codEmpresa">
 
                         <?php
 
-                                    $consulta = "SELECT * FROM `empresa`";
-                                    $resultado = mysqli_query($con, $consulta);
-                                    $contador = 0;
+                        $consulta = "SELECT * FROM `empresa`";
+                        $resultado = mysqli_query($con, $consulta);
+                        $contador = 0;
 
-                                    while ($misdatos = mysqli_fetch_assoc($resultado)) {
-                                        $contador++; ?>
+                        while ($misdatos = mysqli_fetch_assoc($resultado)) {
+                            $contador++; ?>
                         <option>
                             <?php echo $misdatos['nit']; ?>
                         </option>
@@ -66,6 +53,15 @@ $con = conectar();
                 </div>
             </div>
 
+            <div class="form-group row">
+                <label class=" col-form-label fw-bold" style="font-size: 1.1rem">Salario base</label>
+                <div class="col-sm-15">
+                    <input class="form-control bg-light" name="salarioBase" type="text"
+                        placeholder="Ingrerse Salario base" id="idCotizante" />
+                </div>
+            </div>
+
+
             <div>
                 <button type="submit"
                     class="btn btn-info text-white w-100 mt-4 fw-semibold shadow-sm btn-primary">Registrar
@@ -74,14 +70,17 @@ $con = conectar();
 
         </div>
     </form>
-    <form action="aportesBloque.php" method="POST" id="formAportes" enctype="multipart/form-data">
+    <form action="retiro.php" method="POST" id="formAportes" enctype="multipart/form-data">
         <div class="bg-shadow p-5 rounded-5 text-secondary shadow" style="width: 30rem">
-            <div class="text-center fs-3 fw-bold">Seleccion de archivos para registro en bloque</div>
+            <div class="text-center fs-3 fw-bold">Registro de retiro</div>
+
             <div class="form-group row">
-                <label class="col-form-label fw-bold" style="font-size: 1.1rem">Fecha de Pago</label>
+                <label class="col-form-label fw-bold" style="font-size: 1.1rem">Número de contrato</label>
                 <div class="col-sm-15">
-                    <input class="form-control bg-light" name="archivo" type="file" id="FechaPago" />
+                    <input class="form-control bg-light" name="numContrato" type="text"
+                        placeholder="Ingrese el codigo del contrato" id="dni" />
                 </div>
+
                 <div>
                     <button type="submit"
                         class="btn btn-info text-white w-100 mt-4 fw-semibold shadow-sm btn-primary">Subir

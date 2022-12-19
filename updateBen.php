@@ -44,7 +44,7 @@ $row = mysqli_fetch_array($query);
         <form action="actualizarBen.php" method="POST" class="bg-dark">
             <div class="bg-shadow p-5 rounded-5 text-secondary shadow">
                 <div class="col bg-dark text-white text-center">
-                    <h3>Ingresar nuevo cotizante</h3>
+                    <h3>Ingresar beneficiario editado</h3>
                 </div>
                 <!-- 2 column grid layout with text inputs for the first and last names -->
                 <div class="row mb-4">
@@ -159,7 +159,7 @@ $row = mysqli_fetch_array($query);
 
 
                 <!-- Submit button -->
-                <button type="submit" class="btn btn-primary btn-block mb-4">Ingresar</button>
+                <button type="submit" class="btn btn-primary btn-block mb-4">Editar beneficiario</button>
 
             </div>
         </form>
