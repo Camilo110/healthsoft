@@ -1,3 +1,23 @@
+<?php
+include("conex.php");
+$con = conectar();
+
+$sqlant = "SELECT * FROM `guardarfecha`;"; //guarda la fecha guardada en la base de datos
+$queryant=mysqli_query($con,$sqlant);
+$fechaant = mysqli_fetch_array($queryant)['fecha'];
+
+$sql = "SELECT CURRENT_DATE() as fechaActual;"; //guarda la fecha actual
+$query=mysqli_query($con,$sql);
+$fecha = mysqli_fetch_array($query)['fechaActual'];
+
+if($fecha != $fechaant){
+  $sql = "UPDATE `contrato` SET `estado` = 'Inactivo' WHERE `fechaVencimiento` < now()";
+  $query=mysqli_query($con,$sql);
+
+  $sqlact = "UPDATE `guardarfecha` SET `fecha` = now()";//actualiza la fecha de la ultima actualizacion
+  $queryact=mysqli_query($con,$sqlact);
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 

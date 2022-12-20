@@ -206,13 +206,60 @@
                                     Inactivos</button>
                             </a>
 
-                            <a href="listarCitas.php" class="w-100">
-                                <button type="button"
-                                    class="btn btn-info text-white w-100 mt-4 fw-semibold shadow-sm btn-primary buttonlist">Listar 
-                                    Citas</button>
-                            </a>
 
-                            
+                            <form action="listarCitas.php" method="POST" class="bg-dark w-100">
+
+                                <select hidden="true" class="form-control bg-dark align-items-center w-100"
+                                    style="color: gray" name="fecha1">
+
+                                    <?php
+
+                                    $consulta = "SELECT * FROM `ordendeservicio`";
+                                    $resultado = mysqli_query($con, $consulta);
+                                    $contador = 0;
+
+                                    while ($misdatos = mysqli_fetch_assoc($resultado)) {
+                                        $contador++; ?>
+                                    <option>
+                                        <?php echo $misdatos['fechapago']; ?>
+                                    </option>
+                                    <?php } ?>
+                                </select>
+
+
+                                <select hidden="true" action="index.php" method="post" class="form-control bg-dark"
+                                    style="color: gray" name="nit">
+
+                                    <?php
+                                      
+
+                                        $consulta = "SELECT * FROM `ips`";
+                                        $resultado = mysqli_query($con, $consulta);
+                                        $contador = 0;
+
+                                        while ($misdatos = mysqli_fetch_assoc($resultado)) {
+                                            $contador++; ?>
+                                    <option>
+                                        <?php echo $misdatos['nit']; ?>
+                                    </option>
+                                    <?php } ?>
+
+                                </select>
+
+
+
+
+                                <a href="listarCitas.php" class="w-100">
+                                    <button type="submit"
+                                        class="btn btn-info text-white w-100 mt-4 fw-semibold shadow-sm btn-primary buttonlist">Listar
+                                        Citas</button>
+                                </a>
+
+                            </form>
+
+
+
+
 
 
                         </div>
@@ -226,7 +273,8 @@
                                 <img src="../img/guia1.png" class="d-block " width="610" height="350" alt="...">
                             </div>
                             <div class="carousel-item">
-                                <img src="/../img/guiaInferior .png" class="d-block " width="610" height="350" alt="...">
+                                <img src="/../img/guiaInferior .png" class="d-block " width="610" height="350"
+                                    alt="...">
                             </div>
                             <div class="carousel-item">
                                 <img src="/../img/guiaLateral .png" class="d-block " width="610" height="350" alt="...">

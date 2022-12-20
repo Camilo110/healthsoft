@@ -3,7 +3,7 @@
 include("conex.php");
 $con = conectar();
 
-$id = $_GET['id'];
+//$id = $_GET['id'];
 
 
 $dni_afil = $_POST['dni'];
@@ -46,7 +46,7 @@ if (mysqli_num_rows($validar) > 0) {
     mysqli_close($con);
 
     echo '<script> 
-        alert("Beneficiario creado y vinculado");
+        alert("Beneficiario editado");
         window.location = "../healthsoft/beneficiario.php"
         </script>';
     exit;
@@ -58,8 +58,4 @@ if (mysqli_num_rows($validar) > 0) {
     exit;
 }
 
-
-if ($query and $query2) {
-    Header("Location: beneficiario.php");
-}
 ?>

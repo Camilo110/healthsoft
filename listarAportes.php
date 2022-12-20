@@ -77,7 +77,7 @@
 
                 <?php
 
-            
+
                 $f1 = $_POST['fecha1'];
                 $f2 = $_POST['fecha2'];
                 foreach ($link->query("SELECT * FROM `aportes` WHERE fechapago BETWEEN  '$f1' and '$f2'") as $row) { ?>

@@ -21,28 +21,30 @@
         crossorigin="anonymous"></script>
 </head>
 
-<body class="bg-dark py-5 text-white">    
+<body class="bg-dark py-5 text-white">
     <?php
     $link = new PDO('mysql:host=localhost;dbname=healthsoft', 'root', '');
     ?>
-    
-        
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark" >
-                <div class="container px-5">
-                    <a class="navbar-brand" style ="font-size:2.5rem" href="index.php">HealthSoft</a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            
-                    </div>
-                </div>
-            </nav>
-    <h1 style= "text-align:center">
+
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container px-5">
+            <a class="navbar-brand" style="font-size:2.5rem" href="index.php">HealthSoft</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+            </div>
+        </div>
+    </nav>
+    <h1 style="text-align:center">
         Listo Afiliados inactivos
     </h1>
     <br></br>
-    
+
     <div class="todo ">
-        <div id="contenido" style ="font-size:1.3rem">
+        <div id="contenido" style="font-size:1.3rem">
             <table class="table table-striped table-bordered table-hover table-dark"
                 style="margin: 1rem auto; width: 1200px; ">
                 <thead>
@@ -59,12 +61,29 @@
                         <th>Estado civil</th>
                         <th>Correo</th>
                         <th>NIT IPS</th>
-                        
+
 
                     </tr>
                 </thead>
 
-                <?php foreach ($link->query('SELECT * FROM `afiliado` INNER JOIN `cotizante` ON `afiliado`.`dni`=`cotizante`.`dniafiliado` WHERE `cotizante`.`estadoafiliado`  = "inactivo";') as $row) { ?>
+                <?php foreach ($link->query("SELECT * 
+FROM `afiliado` 
+WHERE `dni` in (
+    SELECT c.`dniafiliado`
+    FROM `cotizante` c
+    WHERE c.`dniafiliado` in(
+        SELECT co.`cotizante`
+        FROM `contrato` co
+        WHERE `estado` = 'Inactivo')) or `dni` in 
+        (   SELECT b.`dniafiliado`
+            FROM `beneficiario` b
+            WHERE b.`dnicotizante` in (
+                SELECT cc.`dniafiliado`
+    			FROM `cotizante` cc
+    			WHERE cc.`dniafiliado` in(
+        			SELECT coco.`cotizante`
+        			FROM `contrato` coco
+        			WHERE `estado` = 'Inactivo')));") as $row) { ?>
                 <tr>
                     <td>
                         <?php echo $row['dni'] ?>
@@ -102,15 +121,15 @@
                     <td>
                         <?php echo $row['nitips'] ?>
                     </td>
-                   
+
                 </tr>
                 <?php
                 }
                 ?>
             </table>
         </div>
-        <div id="footer" style = "text:align-center">
-                <p> Todos los derechos reservados</p>
+        <div id="footer" style="text:align-center">
+            <p> Todos los derechos reservados</p>
         </div>
     </div>
 </body>

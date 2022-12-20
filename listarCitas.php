@@ -21,7 +21,7 @@
         crossorigin="anonymous"></script>
 </head>
 
-<body class="bg-dark py-5 text-white">    
+<body class="bg-dark py-5 text-white">
     <?php
     $link = new PDO('mysql:host=localhost;dbname=healthsoft', 'root', '');
     ?>
@@ -30,7 +30,7 @@
         <div id="cabecera">
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
                 <div class="container px-5">
-                    <a class="navbar-brand"style ="font-size:2.5rem" href="index.php">HealthSoft</a>
+                    <a class="navbar-brand" style="font-size:2.5rem" href="index.php">HealthSoft</a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                         data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation"><span
@@ -40,12 +40,12 @@
                 </div>
             </nav>
         </div>
-        <h1 style= "text-align:center">
-        Listado de Citas
+        <h1 style="text-align:center">
+            Listado de Citas
         </h1>
         <br></br>
 
-        <div id="contenido" style ="font-size:1.3rem">
+        <div id="contenido" style="font-size:1.3rem">
             <table class="table table-striped table-bordered table-hover table-dark"
                 style="margin: 1rem auto; width: 1200px; ">
                 <thead>
@@ -53,15 +53,59 @@
                         <th>Codigo</th>
                         <th>Fecha</th>
                         <th>Nombre del médico</th>
-                        <th>Diagnóstico</th>  
+                        <th>Diagnóstico</th>
                         <th>NIT IPS</th>
-                        <th>NIT Afiliado</th>                        
-                        
+                        <th>NIT Afiliado</th>
+                        <th>
+                            <form action="listarCitas.php" method="POST" class="bg-dark">
+                                <div class="col-sm-15">
+                                    <input class="form-control bg-light" name="fecha1" type="date"
+                                        placeholder="dd/mm/aaaa" id="fecha1" />
+                                </div>
+
+
+                                <div class="col-sm-15">
+                                    <select action="listarCitas.php" method="post" class="form-control bg-dark"
+                                        style="color: gray" name="nit">
+
+                                        <?php
+                                        include("conex.php");
+                                        $con = conectar();
+
+                                        $consulta = "SELECT * FROM `ips`";
+                                        $resultado = mysqli_query($con, $consulta);
+                                        $contador = 0;
+
+                                        while ($misdatos = mysqli_fetch_assoc($resultado)) {
+                                            $contador++; ?>
+                                        <option>
+                                            <?php echo $misdatos['nit']; ?>
+                                        </option>
+                                        <?php } ?>
+
+                                    </select>
+                                </div>
+
+
+
+                                <button type="submit" class="btn btn-primary btn-block mb-4">Ingresar</button>
+                            </form>
+
+                        </th>
+
+
+
 
                     </tr>
                 </thead>
 
-                <?php foreach ($link->query('SELECT * from healthsoft.ordendeservicio') as $row) { ?>
+                <?php
+
+                $f1 = $_POST['fecha1'];
+                $ips = $_POST['nit'];
+
+
+                foreach ($link->query("SELECT * FROM `ordendeservicio` WHERE `fecha` = '$f1' and `nitips` ='$ips'") as $row) { ?>
                 <tr>
                     <td>
                         <?php echo $row['codigo'] ?>
@@ -81,15 +125,15 @@
                     <td>
                         <?php echo $row['nitafiliado'] ?>
                     </td>
-                    
+
                 </tr>
                 <?php
                 }
                 ?>
             </table>
         </div>
-        <div id="footer" style = "text:align-center">
-                <p> Todos los derechos reservados</p>
+        <div id="footer" style="text:align-center">
+            <p> Todos los derechos reservados</p>
         </div>
     </div>
 </body>

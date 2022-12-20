@@ -61,7 +61,7 @@
                         <th>Estado civil</th>
                         <th>Correo</th>
                         <th>NIT IPS</th>
-                        <th>Estado afiliado</th>
+        
 
                         <th>
                             <form action="listarActivos.php" method="POST" class="bg-dark">
@@ -94,7 +94,24 @@
                 <?php
 
                 $nit = $_POST['niti'];
-                foreach ($link->query("SELECT * FROM `afiliado` INNER JOIN `cotizante` ON `afiliado`.`dni`=`cotizante`.`dniafiliado` WHERE `cotizante`.`estadoafiliado`  = 'activo' and `afiliado`. `nitips` = '$nit';") as $row) { ?>
+                foreach ($link->query("SELECT * 
+                FROM `afiliado` 
+                WHERE `nitips` = '$nit' and (`dni` in (
+                    SELECT c.`dniafiliado`
+                    FROM `cotizante` c
+                    WHERE c.`dniafiliado` in(
+                        SELECT co.`cotizante`
+                        FROM `contrato` co
+                        WHERE `estado` = 'Activo')) or `dni` in 
+                        (   SELECT b.`dniafiliado`
+                            FROM `beneficiario` b
+                            WHERE b.`dnicotizante` in (
+                                SELECT cc.`dniafiliado`
+                                FROM `cotizante` cc
+                                WHERE cc.`dniafiliado` in(
+                                    SELECT coco.`cotizante`
+                                    FROM `contrato` coco
+                                    WHERE `estado` = 'Activo'))));") as $row) { ?>
                 <tr>
                     <td>
                         <?php echo $row['dni'] ?>
@@ -132,9 +149,7 @@
                     <td>
                         <?php echo $row['nitips'] ?>
                     </td>
-                    <td>
-                        <?php echo $row['estadoafiliado'] ?>
-                    </td>
+                    
 
                 </tr>
                 <?php

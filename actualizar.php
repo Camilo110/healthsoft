@@ -3,7 +3,9 @@
 include("conex.php");
 $con = conectar();
 
-$id = $_GET['id'];
+//$id = $_GET['id'];
+
+
 
 
 $dni_afil = $_POST['dni'];
@@ -19,7 +21,7 @@ $estadocivil = $_POST['ecivil'];
 $correo = $_POST['correo'];
 $nitips = $_POST['nitips'];
 //Cotizante
-$primeraAfi = $_POST['pfa'];
+
 $salario = $_POST['salario'];
 
 
@@ -36,7 +38,7 @@ $empresa = $_POST['empresa'];
 $sql = "UPDATE `afiliado` SET `dni`='$dni_afil',`tipodoc`='$t_doc',`nombre`='$nombres',`apellido`='$apellidos',`fNacimiento`='$f_nac',`genero`='$genero',`direccion`='$direccion',`ciudad`='$ciudad',`telefono`='$telefono',`estadocivil`='$estadocivil',`correo`='$correo',`nitips`='$nitips' WHERE `afiliado`.`dni` = '$dni_afil'";
 $query = mysqli_query($con, $sql);
 
-$sql2 = "UPDATE `cotizante` SET `dniafiliado`='$dni_afil',`fecha1afiliacion`='$primeraAfi'WHERE `cotizante`.`dniafiliado` = '$dni_afil'";
+$sql2 = "UPDATE `cotizante` SET `dniafiliado`='$dni_afil' WHERE `cotizante`.`dniafiliado` = '$dni_afil'";
 $query2 = mysqli_query($con, $sql2);
 
 
@@ -44,6 +46,12 @@ $query2 = mysqli_query($con, $sql2);
 
 
 if ($query and $query2) {
-    Header("Location: afiliado.php");
+
+   
+    echo '<script> 
+    alert("Cotizante registrado");
+    window.location = "../healthsoft/afiliado.php"
+</script>';
+    exit;
 }
 ?>
