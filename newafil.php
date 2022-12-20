@@ -105,28 +105,18 @@ $row = mysqli_fetch_array($query);
 
                         <label class="col-form-label fw-bold" style="font-size: 1.1rem">Telefono</label>
                         <div class="col-sm-15">
-                            <input class="form-control bg-light bg-dark" name="telefono" type="text"
+                            <input class="form-control bg-light bg-dark" name="telefono" type="number"
                                 placeholder="Ingrese Telefono" id="codigo" />
                         </div>
 
                         <label class="col-form-label fw-bold" style="font-size: 1.1rem">Correo electronico</label>
                         <div class="col-sm-15">
-                            <input class="form-control bg-light bg-dark" name="correo" type="text"
+                            <input class="form-control bg-light bg-dark" name="correo" type="email"
                                 placeholder="Ingrese Correo electronico" id="correo" />
                         </div>
 
-                        <label class="col-form-label fw-bold" style="font-size: 1.1rem">Primera fecha de
-                            Afiliación</label>
-                        <div class="col-sm-15">
-                            <input class="form-control bg-light bg-dark" style="color: gray" name="pfa" type="date"
-                                placeholder="dd/mm/aaaa" id="fecha" />
-                        </div>
+                        
 
-                        <label class="col-form-label fw-bold" style="font-size: 1.1rem">Salario</label>
-                        <div class="col-sm-15">
-                            <input class="form-control bg-light bg-dark" name="salario" type="text"
-                                placeholder="Ingrese Salario" id="codigo" />
-                        </div>
 
                         <label class="col-form-label fw-bold " style="font-size: 1.1rem">¿dependiente o
                             independiente?</label>
@@ -141,7 +131,7 @@ $row = mysqli_fetch_array($query);
                     <div class="col">
                         <label class="col-form-label fw-bold " style="font-size: 1.1rem">Numero de documento</label>
                         <div class="col-sm-15">
-                            <input class="form-control bg-light bg-dark " name="dni" type="text"
+                            <input class="form-control bg-light bg-dark " name="dni" type="number"
                                 placeholder="Ingrese Número de documento" id="codigo" />
                         </div>
                         <label class="col-form-label fw-bold" style="font-size: 1.1rem">Apellidos</label>
@@ -201,31 +191,26 @@ $row = mysqli_fetch_array($query);
 
                             </select>
                         </div>
-                    
 
-
-                    <label class="col-form-label fw-bold" style="font-size: 1.1rem">Estado de afiliado</label>
-                    <div class="col-sm-15">
-                        <input class="form-control bg-light bg-dark" name="estadoAfi" type="text"
-                            placeholder="Ingrese Estado de afiliado" id="codigo" />
-                    </div>
-
-                    <label class="col-form-label fw-bold" style="font-size: 1.1rem">Rango salarial</label>
-                    <div class="col-sm-15">
-                        <input class="form-control bg-light bg-dark" name="ranSal" type="text"
-                            placeholder="Ingrese Rango salarial" id="codigo" />
-                    </div>
-
-                    <div id="trabajador" class="element" style="display: none;">
-                        <label class="col-form-label fw-bold" style="font-size: 1.1rem">
-                            Selecciona a cual empresa trabajas</label>
+                        <label class="col-form-label fw-bold" style="font-size: 1.1rem">Salario</label>
                         <div class="col-sm-15">
+                            <input class="form-control bg-light bg-dark" name="salario" type="number"
+                                placeholder="Ingrese Salario" id="codigo" min="0" pattern="^[0-9]+"/>
+                        </div>
 
 
-                            <select action="index.php" method="post" class="form-control bg-dark" style="color: gray"
-                                name="empresa">
 
-                                <?php
+
+                        <div id="trabajador" class="element" style="display: none;">
+                            <label class="col-form-label fw-bold" style="font-size: 1.1rem">
+                                Selecciona a cual empresa trabajas</label>
+                            <div class="col-sm-15">
+
+
+                                <select action="index.php" method="post" class="form-control bg-dark"
+                                    style="color: gray" name="empresa">
+
+                                    <?php
 
                                 $consulta = "SELECT * FROM `empresa`";
                                 $resultado = mysqli_query($con, $consulta);
@@ -233,28 +218,28 @@ $row = mysqli_fetch_array($query);
 
                                 while ($misdatos = mysqli_fetch_assoc($resultado)) {
                                     $contador++; ?>
-                                <option>
-                                    <?php echo $misdatos['nit']; ?>
-                                </option>
-                                <?php } ?>
+                                    <option>
+                                        <?php echo $misdatos['nit']; ?>
+                                    </option>
+                                    <?php } ?>
 
-                            </select>
+                                </select>
+                            </div>
                         </div>
-                    </div>
 
+
+                    </div>
 
                 </div>
 
+                <!-- Checkbox -->
+
+
+                <!-- Submit button -->
+                <button type="submit" class="btn btn-primary btn-block mb-4">Ingresar</button>
+
             </div>
-
-            <!-- Checkbox -->
-
-
-            <!-- Submit button -->
-            <button type="submit" class="btn btn-primary btn-block mb-4">Ingresar</button>
-
-    </div>
-    </form>
+        </form>
     </div>
 
 

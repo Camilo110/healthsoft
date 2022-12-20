@@ -15,6 +15,10 @@ $sql="UPDATE `empresa` SET `ciudad`='$ciudad',`direccion`='$direccion',`nombreco
 $query=mysqli_query($con,$sql);
 
     if($query){
-        Header("Location: empresa.php");
+        echo '<script> 
+        alert("Empresa editada con éxito");
+        window.location = "../healthsoft/empresa.php"
+        </script>';
+    exit;
     }
 ?>

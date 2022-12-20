@@ -146,8 +146,23 @@ $row = mysqli_fetch_array($query);
 
                         <label class="col-form-label fw-bold" style="font-size: 1.1rem">NIT IPS</label>
                         <div class="col-sm-15">
-                            <input class="form-control bg-light bg-dark" name="nitips" type="text"
-                                placeholder="Ingrese NIT IPS" id="codigo" />
+                            <select action="index.php" method="post" class="form-control bg-dark" style="color: gray"
+                                name="nitips">
+
+                                <?php
+
+                                $consulta = "SELECT * FROM `ips`";
+                                $resultado = mysqli_query($con, $consulta);
+                                $contador = 0;
+
+                                while ($misdatos = mysqli_fetch_assoc($resultado)) {
+                                    $contador++; ?>
+                                <option>
+                                    <?php echo $misdatos['nit']; ?>
+                                </option>
+                                <?php } ?>
+
+                            </select>
                         </div>
 
                         <label class="col-form-label fw-bold" style="font-size: 1.1rem">Parentesco </label>

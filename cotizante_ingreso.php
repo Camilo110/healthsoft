@@ -86,36 +86,26 @@
                 <div class="col text-white text-center">
                     <div class="panel panel-default bg-dark">
                         <?php
-
-                      
                         $con = conectar();
 
                         $id = $_GET['id'];
 
                         $sql = "SELECT * FROM `cotizante` INNER JOIN `contrato` ON `cotizante`.`dniafiliado`=`contrato`.`cotizante`
                         inner join `afiliado` on `contrato`.`cotizante`= `afiliado`.`dni`
-                        WHERE `cotizante`.`dniafiliado`  ='$id';";
+                        WHERE `cotizante`.`dniafiliado`  ='$id' ORDER BY `estado`;";
+                        $validar= mysqli_query($con, $sql);
 
-                        foreach ($link->query($sql) as $row) { ?>
-
+                        ?>
 
                         <div class="panel-body">Estado afiliacion:
-                            <?php echo $row['estado'] ?><br>
-                            <br> IPS: 
+                            <?php echo mysqli_fetch_array($validar)['estado']; ?><br>
+                            <br> IPS:
                             <?php echo $row['nitips'] ?><br>
-
-                            <br> nombre 
-                            <?php echo $row['nombre'] ?><br>
-                        
                         </div>
-
 
                     </div>
 
-                    <?php
-                        }
-                        ?>
-                    
+
                 </div>
             </div>
         </div>

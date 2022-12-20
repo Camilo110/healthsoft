@@ -16,10 +16,9 @@ $estadocivil = $_POST['ecivil'];
 $correo = $_POST['correo'];
 $nitips = $_POST['nitips'];
 //Cotizante
-$primeraAfi = $_POST['pfa'];
+
 $salario = $_POST['salario'];
-$estadoAfil = $_POST['estadoAfi'];
-$ranSala = $_POST['ranSal'];
+
 
 //depen inde
 $dOrI = $_POST['status'];
@@ -35,8 +34,7 @@ $validar = mysqli_query($con, "SELECT * FROM `afiliado` WHERE `dni` = '$dni_afil
 $insertAfi = "INSERT INTO `afiliado`(`dni`, `tipodoc`, `nombre`, `apellido`, `fNacimiento`, `genero`, `direccion`, `ciudad`, `telefono`, `estadocivil`, `correo`, `nitips`) VALUES ('$dni_afil','$t_doc','$nombres','$apellidos','$f_nac','$genero','$direccion','$ciudad','$telefono','$estadocivil','$correo','$nitips');";
 
 
-$insertCoti ="INSERT INTO `cotizante`(`dniafiliado`, `fecha1afiliacion`, `estadoafiliado`, `salario`, `rangosalarial`) VALUES ('$dni_afil',NOW(),'$estadoAfil','$salario','$ranSala');";
-
+$insertCoti ="INSERT INTO `cotizante`(`dniafiliado`, `fecha1afiliacion`) VALUES ('$dni_afil',NOW());";
 
 $insertVin = "INSERT INTO `vinculacion`(`salariobase`) VALUES ('$salario');";
 

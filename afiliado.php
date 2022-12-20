@@ -21,28 +21,30 @@
         crossorigin="anonymous"></script>
 </head>
 
-<body class="bg-dark py-5 text-white">    
+<body class="bg-dark py-5 text-white">
     <?php
     $link = new PDO('mysql:host=localhost;dbname=healthsoft', 'root', '');
     ?>
-    
-        
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark" >
-                <div class="container px-5">
-                    <a class="navbar-brand" style ="font-size:2.5rem" href="index.php">HealthSoft</a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            
-                    </div>
-                </div>
-            </nav>
-    <h1 style= "text-align:center">
+
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container px-5">
+            <a class="navbar-brand" style="font-size:2.5rem" href="index.php">HealthSoft</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+            </div>
+        </div>
+    </nav>
+    <h1 style="text-align:center">
         Gestionar Cotizantes
     </h1>
     <br></br>
-    
+
     <div class="todo ">
-        <div id="contenido" style ="font-size:1.3rem">
+        <div id="contenido" style="font-size:1.3rem">
             <table class="table table-striped table-bordered table-hover table-dark"
                 style="margin: 1rem auto; width: 1200px; ">
                 <thead>
@@ -60,13 +62,24 @@
                         <th>Correo</th>
                         <th>NIT IPS</th>
                         <th>Estado</th>
-                        <th> <a href="newafil.php"> <button style ="font-size:1.2rem" type="button" class="btn btn-info">Nuevo</button> </a>
+                        <th> <a href="newafil.php"> <button style="font-size:1.2rem" type="button"
+                                    class="btn btn-info">Nuevo</button> </a>
                         </th>
 
                     </tr>
                 </thead>
 
-                <?php foreach ($link->query('SELECT * FROM `afiliado` INNER JOIN `cotizante` ON `afiliado`.`dni`=`cotizante`.`dniafiliado` ;') as $row) { ?>
+                <?php
+
+                include("conex.php");
+                $con = conectar();
+
+                foreach ($link->query('SELECT * FROM `afiliado` INNER JOIN `cotizante` ON `afiliado`.`dni`=`cotizante`.`dniafiliado` ;') as $row) {
+                    $va = $row['dni'];
+
+                    $consulta = mysqli_query($con, "SELECT `estado` FROM `contrato` WHERE `cotizante` = '$va' order by `estado` ASC limit 1");
+                ?>
+
                 <tr>
                     <td>
                         <?php echo $row['dni'] ?>
@@ -105,13 +118,21 @@
                         <?php echo $row['nitips'] ?>
                     </td>
                     <td>
-                        <?php echo $row['estadoafiliado'] ?>
+                        <?php
+                    if (mysqli_num_rows($consulta) > 0) {
+                        echo mysqli_fetch_array($consulta)['estado'];
+                    }else {
+                        echo 'asd';
+                    }
+                        ?>
                     </td>
 
 
-                    <th><a style ="font-size:1.2rem" href="update.php?id=<?php echo $row['dni'] ?>" class="btn btn-info">Editar</a>
+                    <th><a style="font-size:1.2rem" href="update.php?id=<?php echo $row['dni'] ?>"
+                            class="btn btn-info">Editar</a>
                     </th>
-                    <th><a style ="font-size:1.2rem" href="delete.php?id=<?php echo $row['dni'] ?>" class="btn btn-danger">Eliminar</a>
+                    <th><a style="font-size:1.2rem" href="delete.php?id=<?php echo $row['dni'] ?>"
+                            class="btn btn-danger">Eliminar</a>
                     </th>
                 </tr>
                 <?php
@@ -119,8 +140,8 @@
                 ?>
             </table>
         </div>
-        <div id="footer" style = "text:align-center">
-                <p> Todos los derechos reservados</p>
+        <div id="footer" style="text:align-center">
+            <p> Todos los derechos reservados</p>
         </div>
     </div>
 </body>

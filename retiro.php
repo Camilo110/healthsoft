@@ -3,18 +3,23 @@
 include("conex.php");
 $con = conectar();
 
-$numContrato = $_POST['numContrato'];
+$dni = $_POST['dniC'];
+$nitE = $_POST['nitE'];
 
 
 
 //Validar si esta
-$validar = mysqli_query($con, "SELECT * FROM `contrato` WHERE `numcontrato` = '$numContrato'");
+$validar = mysqli_query($con, "SELECT * FROM `contrato` WHERE `empresa` = '$nitE' and `cotizante` = '$dni'");
 
 
 //datos
-$insertRetiro = "INSERT INTO `retiro`(`numcontrato`) VALUES ('$numContrato')";
-$updateContrato = "UPDATE `contrato` SET`estado`='Retirado' WHERE `numcontrato` = '$numContrato'";
-$updateCotizante = "UPDATE `cotizante` SET `estadoafiliado`='Retirado' WHERE `dniafiliado` = (SELECT `cotizante` FROM `contrato` WHERE `numcontrato` = '$numContrato');";
+$insertRetiro = "INSERT INTO `retiro`(`numcontrato`) VALUES ((SELECT `numcontrato` FROM `contrato` WHERE `empresa` = '$nitE' and `cotizante` = '$dni'));";
+
+$updateContrato = "UPDATE `contrato` SET`estado`='Retirado' ,`fechaVencimiento`=NOW() WHERE `empresa` = '$nitE' and `cotizante` = '$dni'";
+
+
+
+/*$updateCotizante = "UPDATE `cotizante` SET `estadoafiliado`='Retirado' WHERE `dniafiliado` = (SELECT `cotizante` FROM `contrato` WHERE `numcontrato` = '$numContrato');";*/
 
 
 if (mysqli_num_rows($validar) > 0) {
@@ -23,8 +28,7 @@ if (mysqli_num_rows($validar) > 0) {
 
    mysqli_query($con, $insertRetiro);
    mysqli_query($con, $updateContrato);
-   mysqli_query($con, $updateCotizante);
-
+  
    //commit
    mysqli_commit($con);
 

@@ -96,39 +96,29 @@ $row = mysqli_fetch_array($query);
 
                         <label class="col-form-label fw-bold" style="font-size: 1.1rem">Telefono</label>
                         <div class="col-sm-15">
-                            <input class="form-control bg-light bg-dark" name="telefono" type="text"
+                            <input class="form-control bg-light bg-dark" name="telefono" type="number"
                                 placeholder="Ingrese Telefono" id="codigo" value="<?php echo $row['telefono'] ?>">
                         </div>
 
                         <label class="col-form-label fw-bold" style="font-size: 1.1rem">Correo electronico</label>
                         <div class="col-sm-15">
-                            <input class="form-control bg-light bg-dark" name="correo" type="text"
+                            <input class="form-control bg-light bg-dark" name="correo" type="email"
                                 placeholder="Ingrese Correo electronico" id="correo"
                                 value="<?php echo $row['correo'] ?>">
                         </div>
 
-                        <label class="col-form-label fw-bold" style="font-size: 1.1rem">Primera fecha de
-                            Afiliación</label>
-                        <div class="col-sm-15">
-                            <input class="form-control bg-light bg-dark" style="color: gray" name="pfa" type="date"
-                                placeholder="dd/mm/aaaa" id="fecha" value="<?php echo $row['fecha1afiliacion'] ?>">
-                        </div>
+                        
 
-                        <label class="col-form-label fw-bold" style="font-size: 1.1rem">Salario</label>
-                        <div class="col-sm-15">
-                            <input class="form-control bg-light bg-dark" name="salario" type="text"
-                                placeholder="Ingrese Salario" id="codigo" value="<?php echo $row['salario'] ?>">
-                        </div>
-
+                        
 
 
                         <label class="col-form-label fw-bold " style="font-size: 1.1rem">¿dependiente o
                             independiente?</label>
 
-                        <select action="index.php" method="post" id="status" name="status"
-                            onChange="mostrar(this.value);" class="form-control bg-dark" style="color: gray">
-                            <option value="estudiante">Independiente</option>
-                            <option value="trabajador">Dependiente</option>
+                        <select  action="index.php" method="post" id="status" name="status"
+                            onChange="mostrar(this.value);" class="form-control bg-dark" style="color: gray" disabled>
+                            <option value="estudiante">No puedes editar este apartado</option>
+                            
                         </select>
 
 
@@ -136,7 +126,7 @@ $row = mysqli_fetch_array($query);
                     <div class="col">
                         <label class="col-form-label fw-bold " style="font-size: 1.1rem">Numero de documento</label>
                         <div class="col-sm-15">
-                            <input class="form-control bg-light bg-dark " name="dni" type="text"
+                            <input class="form-control bg-light bg-dark " name="dni" type="number"
                                 placeholder="Ingrese Número de documento" id="dni" value="<?php echo $row['dni'] ?>"
                                 readonly>
                         </div>
@@ -199,19 +189,13 @@ $row = mysqli_fetch_array($query);
                             </select>
                         </div>
 
-                        <label class="col-form-label fw-bold" style="font-size: 1.1rem">Estado de afiliado</label>
+                        <label class="col-form-label fw-bold" style="font-size: 1.1rem">Salario</label>
                         <div class="col-sm-15">
-                            <input class="form-control bg-light bg-dark" name="estadoAfi" type="text"
-                                placeholder="Ingrese Estado de afiliado" id="codigo"
-                                value="<?php echo $row['estadoafiliado'] ?>">
+                            <input class="form-control bg-light bg-dark" name="salario" type="number"
+                                placeholder="Ingrese Salario" id="codigo" min="0" pattern="^[0-9]+">
                         </div>
 
-                        <label class="col-form-label fw-bold" style="font-size: 1.1rem">Rango salarial</label>
-                        <div class="col-sm-15">
-                            <input class="form-control bg-light bg-dark" name="ranSal" type="text"
-                                placeholder="Ingrese Rango salarial" id="codigo"
-                                value="<?php echo $row['rangosalarial'] ?>">
-                        </div>
+
 
                         <div id="trabajador" class="element" style="display: none;">
                             <label class="col-form-label fw-bold" style="font-size: 1.1rem">
@@ -220,7 +204,7 @@ $row = mysqli_fetch_array($query);
 
 
                                 <select action="index.php" method="post" class="form-control bg-dark"
-                                    style="color: gray" name="empresa">
+                                    style="color: gray" name="empresa"> 
 
                                     <?php
 

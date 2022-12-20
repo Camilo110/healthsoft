@@ -13,6 +13,11 @@ $sql="UPDATE `ips` SET `razonsocial`='$razon_social',`nivelatencion`='$nivel_ate
 $query=mysqli_query($con,$sql);
 
     if($query){
-        Header("Location: ips.php");
+
+        echo '<script> 
+        alert("Beneficiario creado y vinculado");
+        window.location = "../healthsoft/ips.php"
+        </script>';
+    exit;
     }
 ?>

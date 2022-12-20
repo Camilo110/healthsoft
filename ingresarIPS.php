@@ -46,17 +46,4 @@ if (mysqli_num_rows($validar) == 0) {
 }
 
 
-
-
-
-
-
-
-$sql="INSERT INTO `ips`(`nit`, `razonsocial`, `nivelatencion`, `serviciosprestados`) 
-        VALUES ('$nit_ips','$razon_social','$nivel_atencion','$servicios_prestados')";
-$query=mysqli_query($con,$sql);
-
-    if($query){
-        Header("Location: ips.php");
-    }
 ?>

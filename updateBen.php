@@ -51,7 +51,7 @@ $row = mysqli_fetch_array($query);
                     <div class="col">
                         <label class="col-form-label fw-bold " style="font-size: 1.1rem">Tipo de documento</label>
                         <div class="col-sm-15 bg-dark">
-                            <select class="form-control bg-dark" style="color: gray" name="t_d" >
+                            <select class="form-control bg-dark" style="color: gray" name="t_d">
                                 <option>Cedula</option>
                                 <option>Tarjeta de identidad</option>
 
@@ -62,37 +62,39 @@ $row = mysqli_fetch_array($query);
                         <label class="col-form-label fw-bold" style="font-size: 1.1rem">Nombres</label>
                         <div class="col-sm-15">
                             <input class="form-control bg-light bg-dark" name="nombre" type="text"
-                                placeholder="Ingrese nombres" id="codigo" value="<?php echo $row['nombre']  ?>">
+                                placeholder="Ingrese nombres" id="codigo" value="<?php echo $row['nombre'] ?>">
                         </div>
 
                         <label class="col-form-label fw-bold" style="font-size: 1.1rem">Fecha de nacimiento</label>
                         <div class="col-sm-15">
                             <input class="form-control bg-dark " style="color: gray" name="fnac" type="date"
-                                placeholder="dd/mm/aaaa" id="fecha" required value="<?php echo $row['fNacimiento']  ?>">
+                                placeholder="dd/mm/aaaa" id="fecha" required value="<?php echo $row['fNacimiento'] ?>">
                         </div>
 
                         <label class="col-form-label fw-bold" style="font-size: 1.1rem">Direccion</label>
                         <div class="col-sm-15">
                             <input class="form-control bg-light bg-dark" name="direccion" type="text"
-                                placeholder="Ingrese Direccion" id="codigo" value="<?php echo $row['direccion']  ?>">
+                                placeholder="Ingrese Direccion" id="codigo" value="<?php echo $row['direccion'] ?>">
                         </div>
 
                         <label class="col-form-label fw-bold" style="font-size: 1.1rem">Telefono</label>
                         <div class="col-sm-15">
                             <input class="form-control bg-light bg-dark" name="telefono" type="text"
-                                placeholder="Ingrese Telefono" id="codigo" value="<?php echo $row['telefono']  ?>">
+                                placeholder="Ingrese Telefono" id="codigo" value="<?php echo $row['telefono'] ?>">
                         </div>
 
                         <label class="col-form-label fw-bold" style="font-size: 1.1rem">Correo electronico</label>
                         <div class="col-sm-15">
                             <input class="form-control bg-light bg-dark" name="correo" type="text"
-                                placeholder="Ingrese Correo electronico" id="correo" value="<?php echo $row['correo']  ?>">
+                                placeholder="Ingrese Correo electronico" id="correo"
+                                value="<?php echo $row['correo'] ?>">
                         </div>
 
                         <label class="col-form-label fw-bold" style="font-size: 1.1rem">DNI Cotizante</label>
                         <div class="col-sm-15">
                             <input class="form-control bg-light bg-dark" name="dniCo" type="text"
-                                placeholder="Ingrese el DNI del cotizante" id="codigo" value="<?php echo $row['dnicotizante']  ?>">
+                                placeholder="Ingrese el DNI del cotizante" id="codigo"
+                                value="<?php echo $row['dnicotizante'] ?>">
                         </div>
 
                     </div>
@@ -100,12 +102,14 @@ $row = mysqli_fetch_array($query);
                         <label class="col-form-label fw-bold " style="font-size: 1.1rem">Numero de documento</label>
                         <div class="col-sm-15">
                             <input class="form-control bg-light bg-dark " name="dni" type="text"
-                                placeholder="Ingrese Número de documento" id="dni" value="<?php echo $row['dni']  ?>"readonly>
+                                placeholder="Ingrese Número de documento" id="dni" value="<?php echo $row['dni'] ?>"
+                                readonly>
                         </div>
                         <label class="col-form-label fw-bold" style="font-size: 1.1rem">Apellidos</label>
                         <div class="col-sm-15">
                             <input class="form-control bg-light bg-dark" name="apellidos" type="text"
-                                placeholder="Ingrese Apellidos" id="codigo" required value="<?php echo $row['apellido']  ?>">
+                                placeholder="Ingrese Apellidos" id="codigo" required
+                                value="<?php echo $row['apellido'] ?>">
                         </div>
 
                         <label class="col-form-label fw-bold" style="font-size: 1.1rem">Genero</label>
@@ -121,7 +125,7 @@ $row = mysqli_fetch_array($query);
                         <label class="col-form-label fw-bold" style="font-size: 1.1rem">Ciudad de residencia</label>
                         <div class="col-sm-15">
                             <input class="form-control bg-light bg-dark" name="residencia" type="text"
-                                placeholder="Ingrese Ciudad" id="codigo" value="<?php echo $row['ciudad']  ?>">
+                                placeholder="Ingrese Ciudad" id="codigo" value="<?php echo $row['ciudad'] ?>">
                         </div>
 
                         <label class="col-form-label fw-bold" style="font-size: 1.1rem">Estado civil</label>
@@ -139,14 +143,30 @@ $row = mysqli_fetch_array($query);
 
                         <label class="col-form-label fw-bold" style="font-size: 1.1rem">NIT IPS</label>
                         <div class="col-sm-15">
-                            <input class="form-control bg-light bg-dark" name="nitips" type="text"
-                                placeholder="Ingrese NIT IPS" id="codigo" value="<?php echo $row['nitips']  ?>">
+                            <select action="index.php" method="post" class="form-control bg-dark" style="color: gray"
+                                name="nitips">
+
+                                <?php
+
+                                $consulta = "SELECT * FROM `ips`";
+                                $resultado = mysqli_query($con, $consulta);
+                                $contador = 0;
+
+                                while ($misdatos = mysqli_fetch_assoc($resultado)) {
+                                    $contador++; ?>
+                                <option>
+                                    <?php echo $misdatos['nit']; ?>
+                                </option>
+                                <?php } ?>
+
+                            </select>
                         </div>
 
                         <label class="col-form-label fw-bold" style="font-size: 1.1rem">Parentesco</label>
                         <div class="col-sm-15">
                             <input class="form-control bg-light bg-dark" name="parentesco" type="text"
-                                placeholder="Ingrese el parentesco" id="codigo" value="<?php echo $row['parentezco']  ?>">
+                                placeholder="Ingrese el parentesco" id="codigo"
+                                value="<?php echo $row['parentezco'] ?>">
                         </div>
 
 

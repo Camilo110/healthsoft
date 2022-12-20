@@ -75,16 +75,22 @@ $con = conectar();
             <div class="text-center fs-3 fw-bold">Registro de retiro</div>
 
             <div class="form-group row">
-                <label class="col-form-label fw-bold" style="font-size: 1.1rem">Número de contrato</label>
+                <label class="col-form-label fw-bold" style="font-size: 1.1rem">DNI Cotizante</label>
                 <div class="col-sm-15">
-                    <input class="form-control bg-light" name="numContrato" type="text"
-                        placeholder="Ingrese el codigo del contrato" id="dni" />
+                    <input class="form-control bg-light" name="dniC" type="text"
+                        placeholder="Ingrese el DNI Cotizante" id="dni" />
+                </div>
+
+                <label class="col-form-label fw-bold" style="font-size: 1.1rem">NIT Empresa</label>
+                <div class="col-sm-15">
+                    <input class="form-control bg-light" name="nitE" type="text"
+                        placeholder="Ingrese el NIT Empresa" id="dni" />
                 </div>
 
                 <div>
                     <button type="submit"
-                        class="btn btn-info text-white w-100 mt-4 fw-semibold shadow-sm btn-primary">Subir
-                        Archivo</button>
+                        class="btn btn-info text-white w-100 mt-4 fw-semibold shadow-sm btn-primary">Reportar
+                        retiro</button>
                 </div>
 
             </div>

@@ -28,14 +28,14 @@ if (mysqli_num_rows($validar) == 0) {
     mysqli_close($con);
 
     echo '<script> 
-        alert("Beneficiario creado y vinculado");
+        alert("Empresa creada con éxito");
         window.location = "../healthsoft/empresa.php"
         </script>';
     exit;
 
 }else {
     echo '<script> 
-    alert("Este cotizante no existe");
+    alert("Esta empresa ya existe");
     window.location = "../healthsoft/beneficiario.php"
 </script>';
     exit;

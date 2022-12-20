@@ -25,38 +25,57 @@ $row = mysqli_fetch_array($query);
 </head>
 
 <body class="bg-dark d-flex justify-content-center align-items-center vh-100">
-    <form action="ingresarIPS.php" method="POST">
+    <form action="actualizarIPS.php" method="POST">
         <div class="bg-shadow p-5 rounded-5 text-secondary shadow" style="width: 30rem">
             <div class="d-flex justify-content-center">
                 <img src="" alt="" style="height: 7rem" />
             </div>
-            <div class="text-center fs-3 fw-bold">NIT</div>
+            <div class="text-center fs-3 fw-bold">Editar IPS</div>
             <div class="form-group row">
                 <label class=" col-form-label fw-bold" style="font-size: 1.1rem">NIT</label>
                 <div class="col-sm-15">
                     <input class="form-control bg-light" name="nit" type="text" readonly placeholder="Ingrese el NIT"
-                    value="<?php echo $row['nit']  ?>" id="servicio" />
+                        value="<?php echo $row['nit'] ?>" id="servicio" />
                 </div>
             </div>
             <div class="form-group row">
                 <label class=" col-form-label fw-bold" style="font-size: 1.1rem">Razón social</label>
                 <div class="col-sm-15">
-                    <input class="form-control bg-light" name="razonsocial" value="<?php echo $row['razonsocial']  ?>" type="text"
-                        placeholder="Ingrese la razón social" id="diagnostico" />
+                    <input class="form-control bg-light" name="razonsocial" value="<?php echo $row['razonsocial'] ?>"
+                        type="text" placeholder="Ingrese la razón social" id="diagnostico" />
                 </div>
             </div>
             <div class="form-group row">
                 <label class=" col-form-label fw-bold" style="font-size: 1.1rem">Nivel de atención</label>
                 <div class="col-sm-15">
-                    <input class="form-control bg-light" name="nivelatencion" value="<?php echo $row['nivelatencion']  ?>" placeholder="Ingrese el nivel de atención"
-                        id="fecha" />
+                    <select class="form-control bg-light" name="nivelatencion" id="nivelatencion">
+                        <option>
+                            <?php echo $row['nivelatencion'] ?>
+                        </option>
+
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                    </select>
                 </div>
             </div>
             <div class="form-group row">
                 <label class=" col-form-label fw-bold" style="font-size: 1.1rem">Servicio prestados</label>
                 <div class="col-sm-15">
-                    <input class="form-control bg-light" name="serviciosprestados" type="text"
-                    value="<?php echo $row['serviciosprestados']  ?>" placeholder="Ingrese los servicios prestados" id="dni" />
+                    <select class="form-control bg-light" name="serviciosprestados" id="serviciosprestados">
+                    <option>
+                            <?php echo $row['serviciosprestados'] ?>
+                        </option>
+                        <option>Urología</option>
+                        <option>Consulta externa</option>
+                        <option>Cirugía</option>
+                        <option>Odontología</option>
+                        <option>Enfermería</option>
+                        <option>Ortopedia</option>
+                        <option>Examenes RX</option>
+                    </select>
                 </div>
             </div>
 
